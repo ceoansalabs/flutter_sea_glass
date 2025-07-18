@@ -77,6 +77,48 @@ vec4 applyKawaseBlur(sampler2D tex, vec2 uv, vec2 texelSize, float blurRadius) {
     return totalWeight > 0.0 ? color / totalWeight : texture(tex, uv);
 }
 
+// Determine highlight color with gradual transition from colored to white based on darkness
+vec3 getHighlightColor(vec3 backgroundColor, float targetBrightness) {
+    float luminance = dot(backgroundColor, vec3(0.299, 0.587, 0.114));
+    
+    // Calculate saturation (difference between max and min RGB components)
+    float maxComponent = max(max(backgroundColor.r, backgroundColor.g), backgroundColor.b);
+    float minComponent = min(min(backgroundColor.r, backgroundColor.g), backgroundColor.b);
+    float saturation = maxComponent > 0.0 ? (maxComponent - minComponent) / maxComponent : 0.0;
+    
+    // Create a colored highlight
+    vec3 coloredHighlight = vec3(targetBrightness); // Default to white
+    
+    if (luminance > 0.001) {
+        // Normalize the background color to extract hue/saturation
+        vec3 normalizedBackground = backgroundColor / luminance;
+        
+        // Apply consistent brightness to the normalized color
+        coloredHighlight = normalizedBackground * targetBrightness;
+        
+        // Boost saturation for more vivid highlights
+        float saturationBoost = 1.3;
+        vec3 gray = vec3(dot(coloredHighlight, vec3(0.299, 0.587, 0.114)));
+        coloredHighlight = mix(gray, coloredHighlight, saturationBoost);
+        coloredHighlight = min(coloredHighlight, vec3(1.0));
+    }
+    
+    // Calculate how much to blend towards white based on darkness and saturation
+    // Darker colors (low luminance) should be more white
+    // Low saturation colors should also be more white
+    float luminanceFactor = smoothstep(0.0, 0.6, luminance); // 0 = very dark, 1 = bright
+    float saturationFactor = smoothstep(0.0, 0.4, saturation); // 0 = gray, 1 = saturated
+    
+    // Combine both factors - need both brightness AND saturation for color tinting
+    float colorInfluence = luminanceFactor * saturationFactor;
+    
+    // White highlight for reference
+    vec3 whiteHighlight = vec3(targetBrightness);
+    
+    // Blend between white and colored highlight based on color influence
+    return mix(whiteHighlight, coloredHighlight, colorInfluence);
+}
+
 // Calculate height/depth of the liquid surface
 float getHeight(float sd, float thickness) {
     if (sd >= 0.0 || thickness <= 0.0) {
@@ -91,7 +133,7 @@ float getHeight(float sd, float thickness) {
 }
 
 // Calculate lighting effects based on displacement data
-vec3 calculateLighting(vec2 uv, vec3 normal, float height, vec2 refractionDisplacement, float thickness, float lightAngle, float lightIntensity, float ambientStrength) {
+vec3 calculateLighting(vec2 uv, vec3 normal, float height, vec2 refractionDisplacement, float thickness, float lightAngle, float lightIntensity, float ambientStrength, vec3 backgroundColor) {
     // Basic shape mask
     float normalizedHeight = thickness > 0.0 ? height / thickness : 0.0;
     float shape = smoothstep(0.0, 0.9, 1.0 - normalizedHeight);
@@ -104,9 +146,10 @@ vec3 calculateLighting(vec2 uv, vec3 normal, float height, vec2 refractionDispla
     vec3 viewDir = vec3(0.0, 0.0, 1.0);
 
     // --- Rim lighting (Fresnel) ---
-    // This creates a constant, soft outline.
+    // This creates a constant, soft outline using smart color selection
     float fresnel = pow(1.0 - max(0.0, dot(normal, viewDir)), 3.0);
-    vec3 rimLight = vec3(fresnel * ambientStrength * 0.5);
+    vec3 rimHighlightColor = getHighlightColor(backgroundColor, 0.4);
+    vec3 rimLight = rimHighlightColor * fresnel * ambientStrength * 0.5;
 
     // --- Light-dependent effects ---
     vec3 lightDir = normalize(vec3(cos(lightAngle), sin(lightAngle), -0.7));
@@ -118,16 +161,18 @@ vec3 calculateLighting(vec2 uv, vec3 normal, float height, vec2 refractionDispla
     vec3 halfwayDir2 = normalize(oppositeLightDir + viewDir);
     float specDot2 = max(0.0, dot(normal, halfwayDir2));
 
-    // 1. Sharp surface glint (pure white)
-    float glintExponent = mix(120.0, 200.0, smoothstep(5.0, 25.0, thickness));
+    // 1. Sharp surface glint using smart color selection
+    float glintExponent = mix(4.0, 8.0, smoothstep(1.0, 25.0, thickness));
     float sharpFactor = pow(specDot1, glintExponent) + 0.4 * pow(specDot2, glintExponent);
 
-    // Pure white glint without environment tinting
-    vec3 sharpGlint = vec3(sharpFactor) * lightIntensity * 2.5;
+    // Get highlight color based on background brightness and saturation
+    vec3 glintHighlightColor = getHighlightColor(backgroundColor, 0.7);
+    vec3 sharpGlint = glintHighlightColor * sharpFactor * lightIntensity * 2.0;
 
-    // 2. Soft internal bleed, for a subtle "glow"
-    float softFactor = pow(specDot1, 20.0) + 0.5 * pow(specDot2, 20.0);
-    vec3 softBleed = vec3(softFactor) * lightIntensity * 0.4;
+    // 2. Soft internal bleed using smart color selection
+    float softFactor = pow(specDot1, 8.0) + 0.5 * pow(specDot2, 10.0);
+    vec3 softHighlightColor = getHighlightColor(backgroundColor, 0.5);
+    vec3 softBleed = softHighlightColor * softFactor * lightIntensity * 0.4;
     
     // Combine lighting components
     vec3 lighting = rimLight + sharpGlint + softBleed;
@@ -237,8 +282,11 @@ vec4 renderLiquidGlass(vec2 screenUV, vec2 p, vec2 uSize, float sd, float thickn
     // Mix refraction and reflection based on normal.z
     vec4 liquidColor = refractColor;
     
-    // Calculate lighting effects
-    vec3 lighting = calculateLighting(screenUV, normal, height, refractionDisplacement, thickness, lightAngle, lightIntensity, ambientStrength);
+    // Get background color for lighting calculations
+    vec4 backgroundColor = texture(backgroundTexture, screenUV);
+    
+    // Calculate lighting effects using background color
+    vec3 lighting = calculateLighting(screenUV, normal, height, refractionDisplacement, thickness, lightAngle, lightIntensity, ambientStrength, backgroundColor.rgb);
     
     // Apply realistic glass color influence
     vec4 finalColor = applyGlassColor(liquidColor, glassColor);
@@ -247,7 +295,6 @@ vec4 renderLiquidGlass(vec2 screenUV, vec2 p, vec2 uSize, float sd, float thickn
     finalColor.rgb += lighting;
     
     // Use alpha for smooth transition at boundaries
-    vec4 backgroundColor = texture(backgroundTexture, screenUV);
     return mix(backgroundColor, finalColor, foregroundAlpha);
 }
 
