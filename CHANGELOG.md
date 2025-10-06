@@ -1,3 +1,9 @@
+## 0.1.1-dev.11
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: performance gains and too many changes to cover one by one (#72).
+
 ## 0.1.1-dev.10
 
 > Note: This release has breaking changes.
