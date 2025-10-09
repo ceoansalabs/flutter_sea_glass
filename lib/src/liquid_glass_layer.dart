@@ -294,6 +294,11 @@ class RenderLiquidGlassLayer extends RenderProxyBox {
   void paint(PaintingContext context, Offset offset) {
     final shapes = collectShapes();
 
+    if (shapes.isEmpty) {
+      super.paint(context, offset);
+      return;
+    }
+
     if (_settings.thickness <= 0) {
       _paintShapeContents(context, offset, shapes, glassContainsChild: true);
       _paintShapeContents(context, offset, shapes, glassContainsChild: false);
@@ -305,7 +310,7 @@ class RenderLiquidGlassLayer extends RenderProxyBox {
 
     var thickness = _settings.thickness;
 
-    if (_restrictThickness) {
+    if (_restrictThickness && shapes.isNotEmpty) {
       final smallestShape = shapes.reduce(
         (a, b) => a.$2.size.shortestSide < b.$2.size.shortestSide ? a : b,
       );
