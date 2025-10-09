@@ -1,3 +1,12 @@
+## 0.1.1-dev.15
+
+> Note: This release has breaking changes.
+
+ - **FIX**: settling springs.
+ - **FIX**: optimize some painting and transformations with early return.
+ - **FEAT**: better specular on all platforms for `FakeGlass` (#83).
+ - **BREAKING** **REFACTOR**: rename `StretchGlass` to `LiquidStretch`.
+
 ## 0.1.1-dev.14
 
  - **FIX**: `LiquidGlassLayer` breaks when no child glass widgets are found.
