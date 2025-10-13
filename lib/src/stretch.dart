@@ -82,7 +82,7 @@ class LiquidStretch extends StatelessWidget {
             child: child,
           ),
           child: MotionBuilder(
-            value: value?.withResistance(.08) ?? Offset.zero,
+            value: value?.withResistance(resistance) ?? Offset.zero,
             motion: value == null
                 ? const Motion.bouncySpring(snapToEnd: true)
                 : const Motion.interactiveSpring(snapToEnd: true),
