@@ -18,6 +18,7 @@ class LiquidStretch extends StatelessWidget {
     required this.child,
     this.interactionScale = 1.05,
     this.stretch = .5,
+    this.resistance = .08,
     this.hitTestBehavior = HitTestBehavior.opaque,
     super.key,
   });
@@ -42,6 +43,15 @@ class LiquidStretch extends StatelessWidget {
   ///
   /// Defaults to 0.5.
   final double stretch;
+
+  /// The resistance factor to apply to the drag offset.
+  ///
+  /// The higher the resisance, the more sticky the drag will feel.
+  /// See [OffsetResistanceExtension.withResistance] for details on how this
+  /// works.
+  ///
+  /// Defaults to 0.08.
+  final double resistance;
 
   /// The hit test behavior for the internal gesture Listener.
   ///
@@ -258,7 +268,7 @@ class RenderRawLiquidStretch extends RenderProxyBox {
 }
 
 /// Provides [withResistance] method to apply drag resistance to an [Offset].
-extension DragResistanceExtension on Offset {
+extension OffsetResistanceExtension on Offset {
   /// Returns a new [Offset] with a given [resistance] applied, which will
   /// hold it back the further it deviates from [Offset.zero].
   ///
