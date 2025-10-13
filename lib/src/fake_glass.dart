@@ -118,6 +118,7 @@ class _RenderFakeGlass extends RenderProxyBox {
     final blurFilter = ui.ImageFilter.blur(
       sigmaX: settings.blur,
       sigmaY: settings.blur,
+      tileMode: TileMode.mirror,
     );
 
     // Combine blur and saturation filters
