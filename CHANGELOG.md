@@ -1,3 +1,9 @@
+## 0.1.1-dev.21
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FIX**: drop support for blur in `Glassify` for significant performance gains (#90).
+
 ## 0.1.1-dev.20
 
  - **FIX**: `resistance` parameter didn't actually get used.
