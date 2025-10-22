@@ -1,3 +1,9 @@
+## 0.1.1-dev.23
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **FEAT**: re-use generated geometry more aggressively (#98).
+
 ## 0.1.1-dev.22
 
 > Note: This release has breaking changes.
