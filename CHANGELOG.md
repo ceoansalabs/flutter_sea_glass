@@ -1,3 +1,9 @@
+## 0.1.1-dev.24
+
+ - **FIX**: import `@internal` from meta again (#102).
+ - **FIX**: scrolling elements work again.
+ - **FEAT**: add `FakeGlass.inLayer` which adopts settings from the nearest ancestor layer.
+
 ## 0.1.1-dev.23
 
 > Note: This release has breaking changes.
