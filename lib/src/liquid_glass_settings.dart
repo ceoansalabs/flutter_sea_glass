@@ -14,7 +14,7 @@ class LiquidGlassSettings with EquatableMixin {
     this.thickness = 20,
     this.blur = 0,
     this.chromaticAberration = .01,
-    this.blend = 20,
+    this.blend = 0,
     this.lightAngle = 0.5 * pi,
     this.lightIntensity = .2,
     this.ambientStrength = .01,
@@ -33,7 +33,7 @@ class LiquidGlassSettings with EquatableMixin {
     double visibility = 1.0,
     double lightIntensity = 50,
     double lightAngle = 0.5 * pi,
-    double blend = 20,
+    double blend = 0,
     Color glassColor = const Color.fromARGB(0, 255, 255, 255),
   }) : this(
           visibility: visibility,
