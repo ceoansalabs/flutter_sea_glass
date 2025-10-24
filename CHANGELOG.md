@@ -1,3 +1,20 @@
+## 0.1.1-dev.26
+
+> Note: This release has breaking changes.
+
+ - **FIX**: only run shader on bounding box pixels.
+ - **FIX**: set alwaysNeedsCompositing correctly on `FakeGlass`.
+ - **BREAKING** **REFACTOR**: change default blend value to 0 in `LiquidGlassSettings`.
+ - **BREAKING** **REFACTOR**: move `fake` parameter to `LiquidGlassLayer` and make entire layer fall back to fake glass on Skia.
+ - **BREAKING** **FEAT**: visibility parameter in `LiquidGlassSettings`.
+
+    This can be used to scale all relevant properties of the liquid glass effect
+    at once.
+    
+    If you have made glass appear and disappear manually before, you can now
+    simply animate the visibility between 0 and 1.
+
+
 ## 0.1.1-dev.25
 
  - **FEAT**: add `fake` parameter to `LiquidGlass` to enable it to turn into `FakeGlass` dynamically (#103).
