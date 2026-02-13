@@ -5,10 +5,12 @@ import 'package:liquid_glass_renderer/src/internal/multi_shader_builder.dart';
 import 'package:liquid_glass_renderer/src/shaders.dart';
 
 Future<void> testExecutable(FutureOr<void> Function() testMain) async {
+  isLocalTest = true;
+
   await MultiShaderBuilder.precacheShaders([
+    ShaderKeys.fakeGlassColor,
     ShaderKeys.blendedGeometry,
     ShaderKeys.liquidGlassRender,
-    ShaderKeys.lighting,
     ShaderKeys.liquidGlassFilterShader,
     ShaderKeys.glassify,
   ]);

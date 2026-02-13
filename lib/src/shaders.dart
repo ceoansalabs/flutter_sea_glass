@@ -1,14 +1,13 @@
 // ignore_for_file: public_member_api_docs
 
-import 'dart:io';
-
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:meta/meta.dart';
 
+@visibleForTesting
+bool isLocalTest = false;
+
 final String _shadersRoot =
-    !kIsWeb && Platform.environment.containsKey('FLUTTER_TEST')
-        ? ''
-        : 'packages/liquid_glass_renderer/';
+    !kIsWeb && isLocalTest ? '' : 'packages/liquid_glass_renderer/';
 
 @internal
 abstract class ShaderKeys {
@@ -19,9 +18,6 @@ abstract class ShaderKeys {
 
   static final liquidGlassRender =
       '${_shadersRoot}lib/assets/shaders/liquid_glass_final_render.frag';
-
-  static final lighting =
-      '${_shadersRoot}lib/assets/shaders/liquid_glass_lighting.frag';
 
   static final String liquidGlassFilterShader =
       '${_shadersRoot}lib/assets/shaders/liquid_glass_filter.frag';
