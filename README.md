@@ -41,11 +41,15 @@ GPU); it does not use any platform's private material APIs.
 
 - [Requirements](#requirements)
 - [Quick start](#quick-start)
+- [Choose a glass](#choose-a-glass)
+- [Build a UI with sea glass](#build-a-ui-with-sea-glass)
 - [The widgets](#the-widgets)
 - [Blending shapes](#blending-shapes)
 - [iOS 27 presets and the Liquid Glass slider](#ios-27-presets-and-the-liquid-glass-slider)
 - [Tint and color](#tint-and-color)
 - [Sea glass](#sea-glass)
+- [Clear colored glass](#clear-colored-glass)
+- [Settings reference](#settings-reference)
 - [Refraction](#refraction)
 - [Glint](#glint)
 - [Visibility](#visibility)
@@ -53,6 +57,7 @@ GPU); it does not use any platform's private material APIs.
 - [Glass on glass and `LiquidGlassCapture`](#glass-on-glass-and-liquidglasscapture)
 - [Performance](#performance)
 - [Example playground](#example-playground)
+- [The showcase app](#the-showcase-app)
 - [Contributors](#contributors)
 
 ## Requirements
@@ -118,6 +123,122 @@ Future<void> main() async {
 ```
 
 On Android the GPU part finishes after the first frame.
+
+## Choose a glass
+
+Every look is a `LiquidGlassSettings` on a `LiquidGlassLayer` plus a body
+color per shape (`LiquidGlassAppearance`). Pick the settings for the look,
+then tune them (see [Settings reference](#settings-reference)).
+
+| Glass | Looks like | Settings | Color a shape with |
+| --- | --- | --- | --- |
+| Sea glass | Tumbled, frosted, colored glass; deepest at its center, a frosted rim, a fine grain | `LiquidGlassSettings.seaGlass()` | `LiquidGlassAppearance.seaGlass(color: SeaGlassColors.teal)` |
+| Clear sea glass | The same, with colored glass clear enough to show and bend what is beneath | `LiquidGlassSettings.seaGlass(finish: const SeaGlassFinish(colorClarity: .6))` | as above |
+| Slab sea glass | Thick, milky pastel slabs that glow on the side away from the light and cast soft shadows | `LiquidGlassSettings.slabSeaGlass()` | `SlabSeaGlass.appearance(SlabSeaGlass.original.primary)` |
+| Clear slab | The pastel slabs made translucent, frosted or clear | `slabSeaGlass` with a low `scatter` and a wider lens (see [Recipes](#recipes)) | as above |
+| Liquid glass | iOS 27-style clear glass with a bevel, glint and border | `LiquidGlassSettings.ios27Toolbar(brightness: ...)` | `LiquidGlassAppearance(tint: ...)` |
+
+```dart
+LiquidGlassLayer(
+  settings: LiquidGlassSettings.seaGlass(),
+  // Shapes without an appearance of their own: frosted white sea glass.
+  defaultAppearance: LiquidGlassAppearance.seaGlass(
+    color: SeaGlassColors.white.withValues(alpha: .35),
+  ),
+  child: const LiquidGlass(
+    shape: LiquidRoundedSuperellipse(borderRadius: 32),
+    appearance: LiquidGlassAppearance.seaGlass(color: SeaGlassColors.teal),
+    child: SizedBox(width: 200, height: 64),
+  ),
+)
+```
+
+## Build a UI with sea glass
+
+A glass UI is ordinary Flutter layout with glass shapes in it. These steps
+build a quick settings panel: toggle tiles that merge like drops, a slider
+and a switch between three glasses. The complete app is
+[`example/lib/guide_main.dart`](example/lib/guide_main.dart)
+(`flutter run -t lib/guide_main.dart`).
+
+**1. Put content behind the glass.** Glass shows and bends what is below
+it, so the screen is a `Stack` with the content (an image, a gradient, a
+list) under the glass.
+
+**2. Wrap a region in one `LiquidGlassLayer`.** A layer samples the backdrop
+once for every shape inside it; that sample is the expensive part. Use one
+layer per panel or bar, not one per button. A layer renders at most 16
+shapes.
+
+```dart
+LiquidGlassLayer(
+  settings: LiquidGlassSettings.seaGlass(),
+  defaultAppearance: LiquidGlassAppearance.seaGlass(
+    color: SeaGlassColors.white.withValues(alpha: .35),
+  ),
+  child: Column(children: [slider, tiles]),
+)
+```
+
+**3. Make each control a `LiquidGlass`.** The shape is the glass; the child
+is the content painted on top of it (icons, labels). Shapes are
+`LiquidRoundedSuperellipse` (squircles and capsules), `LiquidOval`,
+`LiquidRoundedRectangle` and `LiquidBlob` (organic outlines).
+
+**4. Show state with color.** A switched-on tile is colored glass, a
+switched-off one frosted white: change its `appearance`, and the glass
+animates nothing it doesn't need to.
+
+```dart
+GestureDetector(
+  onTap: onTap,
+  child: LiquidStretch.seaGlass( // squash and stretch while pressed
+    child: LiquidGlass.grouped(
+      shape: const LiquidRoundedSuperellipse(borderRadius: 32),
+      appearance: LiquidGlassAppearance.seaGlass(
+        color: on ? SeaGlassColors.teal : SeaGlassColors.white.withValues(alpha: .35),
+      ),
+      child: SizedBox(width: 168, height: 64, child: Center(child: Text(label))),
+    ),
+  ),
+)
+```
+
+**5. Merge neighbors with a `LiquidGlassBlendGroup`.** Shapes made with
+`LiquidGlass.grouped` inside a group melt into one surface where they come
+within `blend` logical pixels. Keep `blend` a little below the gap between
+them and they stay apart at rest, then flow together when one is dragged
+toward another.
+
+```dart
+LiquidGlassBlendGroup(
+  blend: 10, // tiles 12 px apart touch only when pulled together
+  child: Wrap(spacing: 12, runSpacing: 12, children: tiles),
+)
+```
+
+**6. Compose controls from several shapes.** A slider is two shapes in a
+`Stack`: colored glass for the level and frosted glass for the rest, resized
+as the finger moves. A tab bar is a row of grouped pebbles in a blend group,
+the selected one wider and colored.
+
+**7. Theme it from one place.** Keep the settings and colors in one object
+and rebuild with new ones to switch the whole UI between glasses:
+
+```dart
+LiquidGlassSettings settingsFor(Glass glass) => switch (glass) {
+  Glass.sea => LiquidGlassSettings.seaGlass(),
+  Glass.slab => LiquidGlassSettings.slabSeaGlass(),
+  Glass.clearSlab => LiquidGlassSettings.slabSeaGlass(
+    finish: const SeaGlassFinish.slab().copyWith(scatter: .24, colorClarity: .6),
+    frost: 6,
+  ).copyWith(refractionHeight: 32, refractionAmount: 26, refractionFitsShape: true),
+};
+```
+
+**8. Warm up and profile.** Call `await LiquidGlass.precache()` before
+`runApp`, and profile on a real device. Glass inside a scrolling list costs
+a layer per item; prefer glass that floats over the content.
 
 ## The widgets
 
@@ -510,7 +631,7 @@ wobble.
 The example recreates the concept's component sheet: a search bar that
 expands into an assistant answer, quick settings, a music card, segmented
 buttons, a floating action button menu, daylight, dusk and a flashlight that
-follows the pointer, and a tap on G cycles the glass sets:
+follows the pointer, and a tap on the sparkle cycles the glass sets:
 
 ```sh
 cd example
@@ -535,6 +656,135 @@ large area, turn it off to use the Gaussian blur pass again.
 backdrop in a shader: its color filter applies the face of the thin rim, a
 multiply-blended thickness pass deepens the body toward the center, and its
 surface pass draws the rim glow, grain and sparkles.
+
+## Clear colored glass
+
+Real sea glass ranges from milky to nearly clear. `SeaGlassFinish.colorClarity`
+clears glass of a color: it scatters, frosts and pits the backdrop less, so
+it shows and bends what is beneath while keeping its color. Only colored
+glass clears, by how much color it holds; frosted white and colorless glass
+in the same layer keep their frost, and a bridge between the two clears
+gradually. Even at `1` the glass keeps some of its milkiness and frost, so
+it still reads as sea glass rather than tinted film.
+
+```dart
+LiquidGlassSettings.seaGlass(
+  finish: const SeaGlassFinish(colorClarity: .6),
+)
+```
+
+It works with every finish, including slab glass. `0`, the default, renders
+as before.
+
+## Settings reference
+
+### `LiquidGlassSettings`
+
+Shared by every shape in a layer.
+
+| Setting | Default | What it does |
+| --- | --- | --- |
+| `refractionHeight` | `20` | Width of the refracting rim, in logical pixels. Sea glass uses a 100 pt dome; slab glass a thin 12 pt rim. |
+| `refractionAmount` | `60` | How far the rim bends the backdrop, in logical pixels. `0` turns refraction off. |
+| `refractionFitsShape` | `true` | Small shapes shrink the lens to fit, so it bends their rim instead of stretching the whole shape. |
+| `backdropShrink` | `0` | Shows the backdrop seen through the face smaller, `0` to `0.75`. |
+| `frost` | `2` | Backdrop blur, in logical pixels. Raise it for frosted glass over photos. |
+| `dispersion` | `0` | Rainbow edges: separates the color channels of the refracted rim. Negative values bend blue more, as real glass does. |
+| `highlight` | `1` | Strength of the glint along the light axis. |
+| `contourStrength` | `0.43` | The thin dark border just outside the outline. |
+| `contourDirectionality` | `0.77` | How much that border concentrates where the glint fades. |
+| `bevelShadowStrength` | `0.036` | The faint inner shadow cast by the rim. |
+| `tintAmount` | `0` | The iOS 27 Liquid Glass slider, from Clear (`0`) to Tinted (`1`). |
+| `lightAngle` | `0` | Where the light comes from, in radians clockwise from straight above. |
+| `light` | daylight | A `GlassLight`: daylight along `lightAngle`, or a lamp at a position. |
+| `seaGlassFinish` | none | The sea glass surface (`SeaGlassFinish`); `none()` is regular liquid glass. |
+
+### `SeaGlassFinish`
+
+The sea glass surface. The presets:
+
+| Control | `SeaGlassFinish()` | `.frosted()` | `.clear()` | `.slab()` | What it does |
+| --- | --- | --- | --- | --- | --- |
+| `strength` | 1 | 1 | 1 | 1 | Cross-fades from regular glass (`0`) to sea glass (`1`). |
+| `depth` | 18 | 22 | 14 | 14 | How far in from the rim the glass reaches full thickness, in logical pixels. |
+| `scatter` | 0.12 | 0.45 | 0.05 | 0.85 | How milky the glass is: the share of light it scatters in its body color. |
+| `rimGlow` | 0.35 | 0.5 | 0.25 | 0 | The frosted rim's glow, strongest facing the light. |
+| `grain` | 0.5 | 0.7 | 0.3 | 0.15 | The fine sugary texture of the pits. |
+| `grainSize` | 1.4 | 1.8 | 1.2 | 1.1 | One grain, in logical pixels; also the size of slab flecks. |
+| `sparkle` | 0.35 | 0.45 | 0.2 | 0 | Tiny glints where pits catch the light. |
+| `pitting` | 0.6 | 1.6 | 0.4 | 0.3 | How far the pits scatter the backdrop, in logical pixels. |
+| `gloss` | 0.6 | 0.35 | 0.85 | 0 | The glint on the dome's shoulder and outline. |
+| `shading` | 0 | 0 | 0 | 1 | Slab shading: the body color in the middle, a bright thin outline, a clear rim. |
+| `glow` | 0 | 0 | 0 | 1 | The pale glow along the edge away from the light. |
+| `flecks` | 0 | 0 | 0 | 1 | Terrazzo chips inside the glass, in tones of its color. |
+| `shadow` | 0 | 0 | 0 | 1 | The shadow each shape casts away from the light (`0` turns it off). |
+| `elevation` | 12 | 12 | 12 | 18 | How high the glass stands above what it casts its shadow on. |
+| `wobble` | 0 | 0 | 0 | 1.5 | Hand-cut outlines that sink inward by up to this many points (full glass only). |
+| `colorClarity` | 0 | 0 | 0 | 0 | How much colored glass clears (see [Clear colored glass](#clear-colored-glass)). |
+| `stochasticFrost` | true | true | true | true | Renders `frost` with scattered samples in the glass pass; turn it off for a smooth Gaussian frost. |
+
+Change any control with `copyWith`:
+
+```dart
+LiquidGlassSettings.slabSeaGlass(
+  finish: const SeaGlassFinish.slab().copyWith(flecks: .35, shadow: 0),
+)
+```
+
+### `LiquidGlassAppearance`
+
+Per shape, or as a layer's `defaultAppearance`.
+
+| Setting | What it does |
+| --- | --- |
+| `LiquidGlassAppearance.seaGlass(color:)` | The body color of sea glass. The color is what the glass shows over white at full thickness; its alpha is how much color it holds (`0` is colorless frosted glass). |
+| `tint` | The color of regular glass, mixed with the backdrop by its alpha. |
+| `saturation`, `transmissionGamma`, `vibrancy` | Tone of the backdrop seen through regular glass. |
+| `visibility` | Materializes the glass, from `0` (hidden) to `1`. |
+
+### `GlassLight`
+
+The light of slab shading and cast shadows (`LiquidGlassSettings.light`).
+
+| Setting | Default | What it does |
+| --- | --- | --- |
+| `position` | none | Where a lamp hangs, in global logical pixels; without it the light is daylight along `lightAngle`. |
+| `height` | `600` | How high the lamp hangs; lower lamps cast longer shadows. |
+| `color`, `intensity` | white, `1` | The light. |
+| `ambient` | black | Light that reaches every shape, as a room's does. |
+| `reach` | none | The radius over which a lamp fades to half, like a flashlight's beam. |
+
+### Recipes
+
+```dart
+// Frosted white glass over a photo, colored glass a little clearer.
+LiquidGlassSettings.seaGlass(
+  finish: const SeaGlassFinish(colorClarity: .5),
+  frost: 8,
+)
+
+// Clear slab: translucent pastel slabs that refract what is beneath.
+LiquidGlassSettings.slabSeaGlass(
+  finish: const SeaGlassFinish.slab().copyWith(scatter: .24),
+).copyWith(refractionHeight: 32, refractionAmount: 26, refractionFitsShape: true)
+
+// Slab glass without shadows.
+LiquidGlassSettings.slabSeaGlass(
+  finish: const SeaGlassFinish.slab().copyWith(shadow: 0),
+)
+
+// A flashlight that follows the finger.
+LiquidGlassSettings.slabSeaGlass(
+  light: GlassLight(position: pointer, height: 320, reach: 480),
+)
+
+// A clear lens with rainbow edges.
+LiquidGlassSettings.seaGlass(
+  finish: const SeaGlassFinish.clear(),
+  frost: 0,
+  dispersion: -.3,
+)
+```
 
 ## Refraction
 
@@ -762,6 +1012,26 @@ angle, full/fake switching and several backdrops. Settings you tune can be
 saved as custom presets.
 `lib/slab_sea_glass_main.dart` runs the [slab sea glass](#slab-sea-glass)
 component sheet.
+
+## The showcase app
+
+`example/lib/sea_glass_showcase_main.dart` is a six-screen app made of sea
+glass: a quick settings shade, a tide pool of living pebbles with a
+draggable sun and a dome lens, a music player, weather, a smart home and a
+wallet.
+
+```sh
+cd example
+flutter run -t lib/sea_glass_showcase_main.dart --enable-impeller --enable-flutter-gpu
+```
+
+The palette button offers every sea glass color. The style button opens a
+tray with every setting the README describes, applied to all screens at
+once: the glass (sea glass, slab or clear slab), the wallpaper, the finish,
+the tone, the shape of round buttons (round, pebble or living), the shine,
+shadows on or off, and sliders for transparency, frost and color. Its
+source in `example/lib/sea_glass_showcase/` shows how to theme a whole app
+from one style object.
 
 ## Limitations
 

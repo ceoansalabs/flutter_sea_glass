@@ -1,15 +1,24 @@
-# Liquid Glass playground
+# flutter_sea_glass examples
 
-A settings playground for `flutter_sea_glass`. Run it from the repository
-root with:
+Four apps, each run from this directory with `flutter run -t <file>` on an
+Impeller device with Flutter GPU (iOS, Android, macOS):
+
+| Entry point | What it is |
+| --- | --- |
+| `lib/sea_glass_showcase_main.dart` | The showcase: six screens made of sea glass (quick settings, a tide pool of living pebbles, music, weather, a smart home, a wallet). Its style tray switches every screen between sea glass, slab and clear slab glass and tunes the wallpaper, finish, tone, shape, shine, shadows, transparency, frost and color. |
+| `lib/guide_main.dart` | The README's "Build a UI with sea glass" guide as a small app: toggle tiles that merge like drops, a two-shape slider and a switch between three glasses. Start here to learn the API. |
+| `lib/slab_sea_glass_main.dart` | Slab sea glass: a component sheet after the Sea Glass design concept, with daylight, dusk and a flashlight that follows the pointer. |
+| `lib/main.dart` | The settings playground for the renderer, described below. |
 
 ```sh
 cd example
-fvm flutter run -d macos
+flutter run -t lib/sea_glass_showcase_main.dart --enable-impeller --enable-flutter-gpu
 ```
 
-Use `fvm flutter devices` to pick an iOS or Android Impeller device instead of
-`macos`.
+## Settings playground
+
+`lib/main.dart` is a settings playground. Use `flutter devices` to pick an
+iOS, Android or macOS Impeller device.
 
 The stage fills the window and shows glass over backdrops that page
 horizontally and scroll vertically, so the glass moves over real content: a
