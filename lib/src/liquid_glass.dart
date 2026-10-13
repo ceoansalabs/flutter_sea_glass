@@ -4,14 +4,14 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/glass_shadow.dart';
-import 'package:liquid_glass_renderer/src/internal/optimized_clip.dart';
-import 'package:liquid_glass_renderer/src/internal/render_liquid_glass_geometry.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_blend_group.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_render_scope.dart';
-import 'package:liquid_glass_renderer/src/precache.dart';
-import 'package:liquid_glass_renderer/src/rendering/liquid_glass_render_object.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/glass_shadow.dart';
+import 'package:flutter_sea_glass/src/internal/optimized_clip.dart';
+import 'package:flutter_sea_glass/src/internal/render_liquid_glass_geometry.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_blend_group.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_render_scope.dart';
+import 'package:flutter_sea_glass/src/precache.dart';
+import 'package:flutter_sea_glass/src/rendering/liquid_glass_render_object.dart';
 import 'package:meta/meta.dart';
 
 /// A liquid glass shape.
@@ -141,7 +141,7 @@ class LiquidGlass extends StatefulWidget {
   /// Painted above the glass effect and clipped by [clipBehavior].
   final Widget child;
 
-  /// {@template liquid_glass_renderer.LiquidGlass.shape}
+  /// {@template flutter_sea_glass.LiquidGlass.shape}
   /// The shape of this glass.
   ///
   /// This is the shape of the glass that will be rendered.

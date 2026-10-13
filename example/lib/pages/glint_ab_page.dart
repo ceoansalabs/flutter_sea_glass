@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/playground/backdrops.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/playground/backdrops.dart';
 
 enum _Side { none, apple, ours, both }
 

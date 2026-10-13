@@ -1,12 +1,12 @@
 import 'dart:math' as math;
 import 'dart:typed_data';
 
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/internal/flutter_gpu_geometry_renderer.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/internal/flutter_gpu_geometry_renderer.dart';
 
 const _expectFallback = bool.fromEnvironment('EXPECT_FLUTTER_GPU_FALLBACK');
-const _bundle = 'build/shaderbundles/liquid_glass_renderer.shaderbundle';
+const _bundle = 'build/shaderbundles/flutter_sea_glass.shaderbundle';
 
 /// An axis-aligned primitive in matte pixels, scaled by [scaleX] and
 /// [scaleY] as a stretched shape is.

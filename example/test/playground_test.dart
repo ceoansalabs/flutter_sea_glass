@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/app.dart';
+import 'package:flutter_sea_glass_example/bottom_bar/ios_bottom_bar.dart';
+import 'package:flutter_sea_glass_example/loupe/liquid_glass_loupe.dart';
+import 'package:flutter_sea_glass_example/playground/backdrops.dart';
+import 'package:flutter_sea_glass_example/playground/inspector/grouped_list.dart';
+import 'package:flutter_sea_glass_example/playground/inspector/inspector.dart';
+import 'package:flutter_sea_glass_example/playground/inspector/material_sections.dart';
+import 'package:flutter_sea_glass_example/playground/playground_state.dart';
+import 'package:flutter_sea_glass_example/playground/presets.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/draggable_glass.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/sea_glass_palette.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/sea_glass_scene.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/app.dart';
-import 'package:liquid_glass_renderer_example/bottom_bar/ios_bottom_bar.dart';
-import 'package:liquid_glass_renderer_example/loupe/liquid_glass_loupe.dart';
-import 'package:liquid_glass_renderer_example/playground/backdrops.dart';
-import 'package:liquid_glass_renderer_example/playground/inspector/grouped_list.dart';
-import 'package:liquid_glass_renderer_example/playground/inspector/inspector.dart';
-import 'package:liquid_glass_renderer_example/playground/inspector/material_sections.dart';
-import 'package:liquid_glass_renderer_example/playground/playground_state.dart';
-import 'package:liquid_glass_renderer_example/playground/presets.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/draggable_glass.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/sea_glass_palette.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/sea_glass_scene.dart';
 
 void main() {
   group('GlassMaterial', () {

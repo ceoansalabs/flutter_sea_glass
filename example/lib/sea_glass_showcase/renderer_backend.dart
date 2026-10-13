@@ -55,7 +55,7 @@ class RendererState {
 /// starts: the engine reads it once per process, so changes apply after
 /// [restart].
 abstract final class RendererBackend {
-  static const _channel = MethodChannel('dev.liquid_glass_renderer/renderer');
+  static const _channel = MethodChannel('dev.flutter_sea_glass/renderer');
 
   /// Whether this platform lets the app pick a backend.
   static bool get supported =>

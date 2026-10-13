@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:liquid_glass_renderer_example/performance_probe.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/showcase_page.dart';
+import 'package:flutter_sea_glass_example/performance_probe.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/showcase_page.dart';
 
 const _enablePerformanceProbe = bool.fromEnvironment(
   'LIQUID_GLASS_EXAMPLE_PERFORMANCE_PROBE',

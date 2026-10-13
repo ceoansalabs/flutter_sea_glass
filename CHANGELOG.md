@@ -1,4 +1,12 @@
-## Unreleased
+## 0.1.0-dev.1
+
+The first release of flutter_sea_glass, a fork of
+[liquid_glass_renderer](https://github.com/whynotmake-it/flutter_liquid_glass)
+1.0.0-dev.1 by whynotmake.it. Import `package:flutter_sea_glass/flutter_sea_glass.dart`
+in place of `package:liquid_glass_renderer/liquid_glass_renderer.dart`; the
+widget API keeps its names. It includes everything below, which was not
+released in liquid_glass_renderer.
+
 
 ### Features
 
@@ -111,7 +119,7 @@
 - Hidden glass (`visibility: 0`) no longer owns the sea glass frost and
   shading of glass drawn over its box, and casts no shadow layer.
 
-## 1.0.0-dev.1
+## liquid_glass_renderer 1.0.0-dev.1
 
 > Note: This release has breaking changes.
 

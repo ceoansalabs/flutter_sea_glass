@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart' show Icons;
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/pages/common.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/quick_settings.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/showcase_options.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/showcase_style.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/pages/common.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/quick_settings.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/showcase_options.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/showcase_style.dart';
 
 /// The notification shade: a clock over quick settings tiles. The
 /// brightness slider dims the wallpaper of every page.

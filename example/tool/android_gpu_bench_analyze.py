@@ -18,8 +18,8 @@ except ImportError:
     sys.stderr.write(
         "error: the 'perfetto' module is missing.\n"
         "Create the venv and install it:\n"
-        "  python3 -m venv packages/liquid_glass_renderer/example/tool/.venv-android-bench\n"
-        "  packages/liquid_glass_renderer/example/tool/.venv-android-bench/bin/pip install perfetto\n"
+        "  python3 -m venv example/tool/.venv-android-bench\n"
+        "  example/tool/.venv-android-bench/bin/pip install perfetto\n"
     )
     sys.exit(2)
 
@@ -547,7 +547,7 @@ def _discover_runs(out_dir: Path) -> list[Path]:
 def _analyze_run(run_dir: Path) -> dict[str, Any]:
     meta = _read_json(run_dir / "run.json") or {}
     flutter = _read_json(run_dir / "flutter_summary.json") or meta.get("flutterSummary")
-    package = str(meta.get("package") or "com.example.liquid_glass_renderer_example")
+    package = str(meta.get("package") or "com.example.flutter_sea_glass_example")
     uid = meta.get("uid") or _read_text(run_dir / "begin" / "uid.txt").strip() or None
     measure_s = _num(meta.get("measureSeconds"))
     wall_s = _num(meta.get("wallSeconds")) or measure_s

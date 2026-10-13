@@ -2,10 +2,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/bottom_bar/listenable_transform.dart';
-import 'package:liquid_glass_renderer_example/bottom_bar/tab_selection.dart';
-import 'package:liquid_glass_renderer_example/bottom_bar/vibrant_tint.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/bottom_bar/listenable_transform.dart';
+import 'package:flutter_sea_glass_example/bottom_bar/tab_selection.dart';
+import 'package:flutter_sea_glass_example/bottom_bar/vibrant_tint.dart';
 import 'package:motor/motor.dart';
 
 @immutable

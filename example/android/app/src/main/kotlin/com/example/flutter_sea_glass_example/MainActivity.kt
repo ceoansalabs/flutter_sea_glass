@@ -1,4 +1,4 @@
-package com.example.liquid_glass_renderer_example
+package com.example.flutter_sea_glass_example
 
 import android.content.Intent
 import android.os.Bundle
@@ -144,8 +144,8 @@ class MainActivity : FlutterActivity() {
     }
 
     companion object {
-        private const val CHANNEL = "dev.liquid_glass_renderer/benchmark"
-        private const val RENDERER_CHANNEL = "dev.liquid_glass_renderer/renderer"
+        private const val CHANNEL = "dev.flutter_sea_glass/benchmark"
+        private const val RENDERER_CHANNEL = "dev.flutter_sea_glass/renderer"
         private const val EXTRA_SCENARIO = "scenario"
         private const val EXTRA_WARMUP_SECONDS = "warmupSeconds"
         private const val EXTRA_MEASURE_SECONDS = "measureSeconds"

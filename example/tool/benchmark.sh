@@ -64,7 +64,7 @@ SCENARIOS="$(bench_resolve_scenes "${LIQUID_GLASS_BENCHMARK_SCENARIOS:-core}")"
 TRACE_SCENARIOS="${LIQUID_GLASS_BENCHMARK_TRACE_SCENARIOS:-}"
 FLUTTER_BIN="${LIQUID_GLASS_FLUTTER_BIN:-flutter}"
 DART_BIN="${LIQUID_GLASS_DART_BIN:-dart}"
-APP_EXECUTABLE="${LIQUID_GLASS_BENCHMARK_EXECUTABLE:-$EXAMPLE_DIR/build/macos/Build/Products/Profile/liquid_glass_renderer_example.app/Contents/MacOS/liquid_glass_renderer_example}"
+APP_EXECUTABLE="${LIQUID_GLASS_BENCHMARK_EXECUTABLE:-$EXAMPLE_DIR/build/macos/Build/Products/Profile/flutter_sea_glass_example.app/Contents/MacOS/flutter_sea_glass_example}"
 
 command -v "$FLUTTER_BIN" >/dev/null || { echo "flutter is required" >&2; exit 1; }
 command -v "$DART_BIN" >/dev/null || { echo "dart is required" >&2; exit 1; }
@@ -183,14 +183,14 @@ stop_trace_watchdog() {
 }
 
 terminate_existing_benchmark_targets() {
-  pkill -TERM -x liquid_glass_renderer_example 2>/dev/null || true
+  pkill -TERM -x flutter_sea_glass_example 2>/dev/null || true
   for _ in $(seq 1 20); do
-    pgrep -x liquid_glass_renderer_example >/dev/null 2>&1 || return 0
+    pgrep -x flutter_sea_glass_example >/dev/null 2>&1 || return 0
     sleep 0.1
   done
-  pkill -KILL -x liquid_glass_renderer_example 2>/dev/null || true
+  pkill -KILL -x flutter_sea_glass_example 2>/dev/null || true
   for _ in $(seq 1 20); do
-    pgrep -x liquid_glass_renderer_example >/dev/null 2>&1 || return 0
+    pgrep -x flutter_sea_glass_example >/dev/null 2>&1 || return 0
     sleep 0.1
   done
   printf 'Could not terminate an existing benchmark target.\n' >&2

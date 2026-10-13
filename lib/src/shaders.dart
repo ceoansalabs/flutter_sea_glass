@@ -8,7 +8,7 @@ bool isLocalTest = false;
 
 final String _shadersRoot = !kIsWeb && isLocalTest
     ? ''
-    : 'packages/liquid_glass_renderer/';
+    : 'packages/flutter_sea_glass/';
 
 @internal
 abstract class ShaderKeys {
@@ -27,5 +27,5 @@ abstract class ShaderKeys {
       '${_shadersRoot}lib/assets/shaders/fake_glass_surface.frag';
 
   static final String gpuGeometryShaderBundle =
-      '${_shadersRoot}build/shaderbundles/liquid_glass_renderer.shaderbundle';
+      '${_shadersRoot}build/shaderbundles/flutter_sea_glass.shaderbundle';
 }

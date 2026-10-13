@@ -2,7 +2,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:liquid_glass_renderer/src/internal/flutter_gpu_geometry_renderer.dart';
+import 'package:flutter_sea_glass/src/internal/flutter_gpu_geometry_renderer.dart';
 import 'package:meta/meta.dart';
 
 @internal

@@ -2,12 +2,12 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/fake_glass.dart';
+import 'package:flutter_sea_glass/src/internal/fake_glass_color.dart';
+import 'package:flutter_sea_glass/src/liquid_glass.dart';
+import 'package:flutter_sea_glass/src/rendering/consolidated_fake_glass_layer.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/fake_glass.dart';
-import 'package:liquid_glass_renderer/src/internal/fake_glass_color.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass.dart';
-import 'package:liquid_glass_renderer/src/rendering/consolidated_fake_glass_layer.dart';
 
 void main() {
   const settings = LiquidGlassSettings(frost: 4);

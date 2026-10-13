@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/rendering.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/internal/snap_rect_to_pixels.dart';
-import 'package:liquid_glass_renderer/src/logging.dart';
-import 'package:liquid_glass_renderer/src/rendering/liquid_glass_render_object.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/internal/snap_rect_to_pixels.dart';
+import 'package:flutter_sea_glass/src/logging.dart';
+import 'package:flutter_sea_glass/src/rendering/liquid_glass_render_object.dart';
 import 'package:meta/meta.dart';
 
 /// Refreshes source order during owner paint, walking only source ancestry.

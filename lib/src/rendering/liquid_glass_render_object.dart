@@ -8,13 +8,13 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/glass_shadow.dart';
-import 'package:liquid_glass_renderer/src/internal/glass_composition_probe.dart';
-import 'package:liquid_glass_renderer/src/internal/render_liquid_glass_geometry.dart';
-import 'package:liquid_glass_renderer/src/internal/retained_glass_clip.dart';
-import 'package:liquid_glass_renderer/src/internal/transform_tracking_repaint_boundary_mixin.dart';
-import 'package:liquid_glass_renderer/src/logging.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/glass_shadow.dart';
+import 'package:flutter_sea_glass/src/internal/glass_composition_probe.dart';
+import 'package:flutter_sea_glass/src/internal/render_liquid_glass_geometry.dart';
+import 'package:flutter_sea_glass/src/internal/retained_glass_clip.dart';
+import 'package:flutter_sea_glass/src/internal/transform_tracking_repaint_boundary_mixin.dart';
+import 'package:flutter_sea_glass/src/logging.dart';
 
 @internal
 abstract interface class LiquidGlassLayerRenderObject {
@@ -169,7 +169,7 @@ bool debugCheckOpacityBetweenShapesAndLayer(
       if (ancestor is RenderOpacity || ancestor is RenderAnimatedOpacity) {
         _debugWarnedOpacityBetweenShapeAndLayer = true;
         debugPrint(
-          'liquid_glass_renderer: an Opacity or FadeTransition between '
+          'flutter_sea_glass: an Opacity or FadeTransition between '
           'a LiquidGlass and its LiquidGlassLayer only fades the '
           "glass's children, not the glass. Fade glass with "
           'LiquidGlassVisibility or LiquidGlassAppearance.visibility '

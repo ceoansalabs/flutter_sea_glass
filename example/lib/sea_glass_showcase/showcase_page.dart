@@ -3,19 +3,19 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart' show Icons;
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/living_glass.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/pages/home_page.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/pages/music_page.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/pages/shade_page.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/pages/tide_pool_page.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/pages/wallet_page.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/pages/weather_page.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/pebble_tab_bar.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/sea_glass_menus.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/showcase_options.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/showcase_style.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/wallpapers.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/living_glass.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/pages/home_page.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/pages/music_page.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/pages/shade_page.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/pages/tide_pool_page.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/pages/wallet_page.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/pages/weather_page.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/pebble_tab_bar.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/sea_glass_menus.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/showcase_options.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/showcase_style.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/wallpapers.dart';
 
 /// The sea glass showcase: six screens made of sea glass over soft
 /// wallpapers that let the glass carry the scene.

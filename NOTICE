@@ -1,0 +1,20 @@
+flutter_sea_glass
+Copyright 2026 padmanabanSampath
+
+This product is a modified version of liquid_glass_renderer
+(https://github.com/whynotmake-it/flutter_liquid_glass),
+Copyright 2025 Tim Lehmann for whynotmake.it,
+licensed under the Apache License, Version 2.0.
+
+The original code has been modified: the package was renamed, and sea
+glass, slab sea glass, clear colored glass, living organic shapes and
+other features were added and changed throughout the renderer, its
+shaders and its example app. The git history of this repository records
+the original authorship and every change.
+
+This product includes third-party code under its own licenses; see the
+files in third_party/ for their notices.
+
+flutter_sea_glass is not affiliated with or endorsed by whynotmake.it,
+Apple or Google. Slab sea glass is an unofficial recreation inspired by
+the Sea Glass design concept (a community Figma file).

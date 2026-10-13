@@ -1,9 +1,9 @@
 import 'dart:math' as math;
 
 import 'package:flutter/cupertino.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/playground/inspector/grouped_list.dart';
-import 'package:liquid_glass_renderer_example/playground/playground_state.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/playground/inspector/grouped_list.dart';
+import 'package:flutter_sea_glass_example/playground/playground_state.dart';
 
 /// Refraction and lighting controls for the layer-wide settings.
 class MaterialSections extends StatelessWidget {

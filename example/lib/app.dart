@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:liquid_glass_renderer_example/loupe/liquid_glass_loupe.dart';
-import 'package:liquid_glass_renderer_example/performance_probe.dart';
-import 'package:liquid_glass_renderer_example/playground/backdrops.dart';
-import 'package:liquid_glass_renderer_example/playground/playground_state.dart';
-import 'package:liquid_glass_renderer_example/playground/settings_sheet.dart';
-import 'package:liquid_glass_renderer_example/playground/sheet_avoidance.dart';
-import 'package:liquid_glass_renderer_example/playground/stage.dart';
+import 'package:flutter_sea_glass_example/loupe/liquid_glass_loupe.dart';
+import 'package:flutter_sea_glass_example/performance_probe.dart';
+import 'package:flutter_sea_glass_example/playground/backdrops.dart';
+import 'package:flutter_sea_glass_example/playground/playground_state.dart';
+import 'package:flutter_sea_glass_example/playground/settings_sheet.dart';
+import 'package:flutter_sea_glass_example/playground/sheet_avoidance.dart';
+import 'package:flutter_sea_glass_example/playground/stage.dart';
 
 const _enablePerformanceProbe = bool.fromEnvironment(
   'LIQUID_GLASS_EXAMPLE_PERFORMANCE_PROBE',

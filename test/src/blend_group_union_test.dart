@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
+import 'package:flutter_sea_glass/src/internal/flutter_gpu_geometry_renderer.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:liquid_glass_renderer/src/internal/flutter_gpu_geometry_renderer.dart';
 
 const _width = 256;
 const _height = 128;
@@ -59,7 +59,7 @@ void main() {
   setUpAll(() async {
     if (_expectFallback) return;
     renderer = await FlutterGpuGeometryRenderer.fromAsset(
-      'build/shaderbundles/liquid_glass_renderer.shaderbundle',
+      'build/shaderbundles/flutter_sea_glass.shaderbundle',
     );
   });
 

@@ -4,7 +4,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
 
 /// Connects a [LiquidGlassLoupe] to the [LiquidGlassLoupeSource] whose
 /// content it magnifies.
@@ -50,7 +50,7 @@ class LiquidGlassLoupeSource extends SingleChildRenderObjectWidget {
 /// glass then refracts and lights that magnified content like any other
 /// backdrop.
 ///
-/// This is example code, not part of `liquid_glass_renderer`: it composes the
+/// This is example code, not part of `flutter_sea_glass`: it composes the
 /// renderer's public [LiquidGlass.withOwnLayer] with Flutter's layer API
 /// ([OffsetLayer.toImageSync]). Copy it into an app to use it.
 ///

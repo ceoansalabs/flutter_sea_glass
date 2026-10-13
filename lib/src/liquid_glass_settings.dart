@@ -2,11 +2,11 @@ import 'dart:math' as math;
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/src/glass_light.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_appearance.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_render_scope.dart';
-import 'package:liquid_glass_renderer/src/sea_glass.dart';
-import 'package:liquid_glass_renderer/src/slab_sea_glass.dart';
+import 'package:flutter_sea_glass/src/glass_light.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_appearance.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_render_scope.dart';
+import 'package:flutter_sea_glass/src/sea_glass.dart';
+import 'package:flutter_sea_glass/src/slab_sea_glass.dart';
 import 'package:meta/meta.dart';
 
 /// Material parameters for the liquid-glass compositor.

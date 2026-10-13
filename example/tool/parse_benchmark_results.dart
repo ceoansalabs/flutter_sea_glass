@@ -659,7 +659,7 @@ List<_MeasurementWindow> _readLoggedMeasurementWindows(
     '<duration>([^<]+)</duration>',
   ).firstMatch(toc)?.group(1);
   final processPidText = RegExp(
-    r'<process type="attached"[^>]*name="liquid_glass_renderer_example"[^>]*pid="(\d+)"',
+    r'<process type="attached"[^>]*name="flutter_sea_glass_example"[^>]*pid="(\d+)"',
   ).firstMatch(toc)?.group(1);
   if (startText == null || durationText == null || processPidText == null) {
     return const [];

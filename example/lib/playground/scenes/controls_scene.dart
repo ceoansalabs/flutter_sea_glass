@@ -2,10 +2,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/bottom_bar/ios_bottom_bar.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/control_glass.dart';
-import 'package:liquid_glass_renderer_example/playground/sheet_avoidance.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/bottom_bar/ios_bottom_bar.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/control_glass.dart';
+import 'package:flutter_sea_glass_example/playground/sheet_avoidance.dart';
 import 'package:motor/motor.dart';
 
 /// Everyday controls: navigation buttons at the top and a bottom bar. Every

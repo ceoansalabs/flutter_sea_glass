@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:alchemist/alchemist.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/shaders.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/shaders.dart';
 
 Future<void> testExecutable(FutureOr<void> Function() testMain) async {
   isLocalTest = true;

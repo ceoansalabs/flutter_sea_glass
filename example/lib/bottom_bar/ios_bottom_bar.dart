@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/bottom_bar/loupe_tab_bar.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/draggable_glass.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/bottom_bar/loupe_tab_bar.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/draggable_glass.dart';
 import 'package:motor/motor.dart';
 
-export 'package:liquid_glass_renderer_example/bottom_bar/loupe_tab_bar.dart'
+export 'package:flutter_sea_glass_example/bottom_bar/loupe_tab_bar.dart'
     show BottomBarTab;
 
 /// The iOS 27 bottom bar: an optional accessory capsule (a mini player, say)

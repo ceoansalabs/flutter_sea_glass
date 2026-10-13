@@ -1,10 +1,10 @@
 # Liquid Glass playground
 
-A settings playground for `liquid_glass_renderer`. Run it from the repository
+A settings playground for `flutter_sea_glass`. Run it from the repository
 root with:
 
 ```sh
-cd packages/liquid_glass_renderer/example
+cd example
 fvm flutter run -d macos
 ```
 

@@ -1,10 +1,10 @@
 import 'dart:math' as math;
 
 import 'package:flutter/cupertino.dart';
-import 'package:liquid_glass_renderer_example/playground/inspector/grouped_list.dart';
-import 'package:liquid_glass_renderer_example/playground/inspector/inspector.dart';
-import 'package:liquid_glass_renderer_example/playground/playground_state.dart';
-import 'package:liquid_glass_renderer_example/playground/stage.dart';
+import 'package:flutter_sea_glass_example/playground/inspector/grouped_list.dart';
+import 'package:flutter_sea_glass_example/playground/inspector/inspector.dart';
+import 'package:flutter_sea_glass_example/playground/playground_state.dart';
+import 'package:flutter_sea_glass_example/playground/stage.dart';
 import 'package:stupid_simple_sheet/stupid_simple_sheet.dart';
 
 /// Window width from which the sheet floats beside the stage instead of

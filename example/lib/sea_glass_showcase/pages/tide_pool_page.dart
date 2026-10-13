@@ -4,11 +4,11 @@ import 'dart:ui' show lerpDouble;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/pages/common.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/sea_glass_menus.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/showcase_options.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/showcase_style.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/pages/common.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/sea_glass_menus.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/showcase_options.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/showcase_style.dart';
 
 /// Living sea glass: pebbles whose outlines flow and breathe and that merge
 /// like drops, a sun that steers the light of every page, and the organic

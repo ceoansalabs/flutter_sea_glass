@@ -3,11 +3,11 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/internal/fake_glass_blend.dart';
+import 'package:flutter_sea_glass/src/internal/rounded_superellipse_parameters.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_settings.dart';
 import 'package:flutter_shaders/flutter_shaders.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/internal/fake_glass_blend.dart';
-import 'package:liquid_glass_renderer/src/internal/rounded_superellipse_parameters.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_settings.dart';
 import 'package:meta/meta.dart';
 
 /// Extra logical pixels required for the portion of the contour that lies

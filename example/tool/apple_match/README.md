@@ -1,6 +1,6 @@
 # Apple liquid-glass matching
 
-Matches `liquid_glass_renderer` against pinned iOS 27 captures of public
+Matches `flutter_sea_glass` against pinned iOS 27 captures of public
 SwiftUI glass (`.buttonStyle(.glass)`, the system tab bar, the loupe). No
 private API. The pipeline has four steps: capture Apple, render ours, compare,
 crop.
@@ -30,7 +30,7 @@ validation fails on pointers, so materialize them before comparing or
 fitting. From the repository root:
 
 ```sh
-git lfs pull --include='packages/liquid_glass_renderer/example/tool/apple_match/references/**'
+git lfs pull --include='example/tool/apple_match/references/**'
 ```
 
 This fetches only the committed Apple captures; it does not recover
@@ -39,7 +39,7 @@ historical ignored evidence under `out/`, traces or build directories.
 Then enter the matching tool directory and run the remaining setup:
 
 ```sh
-cd packages/liquid_glass_renderer/example/tool/apple_match
+cd example/tool/apple_match
 python3 -m venv compare/.venv
 compare/.venv/bin/pip install -r compare/requirements.txt
 export IOS_27_UDID="$(compare/.venv/bin/python pin_simulator.py)"

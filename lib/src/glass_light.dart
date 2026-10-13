@@ -2,8 +2,8 @@ import 'dart:math' as math;
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter/painting.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_settings.dart';
-import 'package:liquid_glass_renderer/src/sea_glass.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_settings.dart';
+import 'package:flutter_sea_glass/src/sea_glass.dart';
 
 /// The light that shades sea glass slabs and casts their shadows (see
 /// [SeaGlassFinish.shading] and [SeaGlassFinish.shadow]).

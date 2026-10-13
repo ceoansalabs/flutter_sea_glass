@@ -2,10 +2,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart' show Icons;
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/pages/common.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/showcase_options.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/showcase_style.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/pages/common.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/showcase_options.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/showcase_style.dart';
 
 /// A smart home: rooms strung on glass, a thermostat dial with its buttons
 /// fused to the rim, scenes and devices that glow in the body color.

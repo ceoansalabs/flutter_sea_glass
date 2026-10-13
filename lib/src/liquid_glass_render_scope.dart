@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
 import 'package:meta/meta.dart';
 
 @internal

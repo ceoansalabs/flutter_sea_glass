@@ -1,4 +1,4 @@
-package com.example.liquid_glass_renderer_example
+package com.example.flutter_sea_glass_example
 
 import android.content.Context
 import android.os.Build
@@ -16,7 +16,7 @@ object RendererBackend {
     const val VULKAN = "vulkan"
     const val OPENGLES = "opengles"
 
-    private const val PREFERENCES = "liquid_glass_renderer"
+    private const val PREFERENCES = "flutter_sea_glass"
     private const val KEY = "impellerBackend"
 
     /**

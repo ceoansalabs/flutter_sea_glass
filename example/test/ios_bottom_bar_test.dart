@@ -2,10 +2,10 @@ import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/bottom_bar/ios_bottom_bar.dart';
+import 'package:flutter_sea_glass_example/bottom_bar/loupe_tab_bar.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/bottom_bar/ios_bottom_bar.dart';
-import 'package:liquid_glass_renderer_example/bottom_bar/loupe_tab_bar.dart';
 
 /// Where the loupe's per-frame size in the fast drag test is written as CSV,
 /// if set.

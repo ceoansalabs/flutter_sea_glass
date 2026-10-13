@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
 
 /// Scrolling glass content for renderer regressions: 15 standalone shapes,
 /// or the same shapes merged in [LiquidGlassBlendGroup]s. A layer supports

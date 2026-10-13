@@ -5,14 +5,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/internal/backdrop_capture_debug.dart';
-import 'package:liquid_glass_renderer/src/internal/fake_glass_blend.dart';
-import 'package:liquid_glass_renderer/src/internal/fake_glass_color.dart';
-import 'package:liquid_glass_renderer/src/internal/paint_fake_glass_surface.dart';
-import 'package:liquid_glass_renderer/src/internal/render_liquid_glass_geometry.dart';
-import 'package:liquid_glass_renderer/src/internal/transform_tracking_repaint_boundary_mixin.dart';
-import 'package:liquid_glass_renderer/src/rendering/liquid_glass_render_object.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/internal/backdrop_capture_debug.dart';
+import 'package:flutter_sea_glass/src/internal/fake_glass_blend.dart';
+import 'package:flutter_sea_glass/src/internal/fake_glass_color.dart';
+import 'package:flutter_sea_glass/src/internal/paint_fake_glass_surface.dart';
+import 'package:flutter_sea_glass/src/internal/render_liquid_glass_geometry.dart';
+import 'package:flutter_sea_glass/src/internal/transform_tracking_repaint_boundary_mixin.dart';
+import 'package:flutter_sea_glass/src/rendering/liquid_glass_render_object.dart';
 
 enum _FakeGlassPaintStage {
   shadows,

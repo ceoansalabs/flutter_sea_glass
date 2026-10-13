@@ -7,7 +7,7 @@ import 'dart:ui' show ImageFilter, TileMode;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
 
 const _defaultScenarioName = String.fromEnvironment(
   'LIQUID_GLASS_BENCHMARK_SCENARIO',
@@ -25,7 +25,7 @@ const _defaultRepetition = int.fromEnvironment(
   'LIQUID_GLASS_BENCHMARK_REPETITION',
   defaultValue: 1,
 );
-const _native = MethodChannel('dev.liquid_glass_renderer/benchmark');
+const _native = MethodChannel('dev.flutter_sea_glass/benchmark');
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

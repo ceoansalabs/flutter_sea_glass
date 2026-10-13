@@ -3,12 +3,12 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/internal/multi_shader_builder.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_render_scope.dart';
+import 'package:flutter_sea_glass/src/rendering/liquid_glass_layer.dart';
+import 'package:flutter_sea_glass/src/shaders.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/internal/multi_shader_builder.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_render_scope.dart';
-import 'package:liquid_glass_renderer/src/rendering/liquid_glass_layer.dart';
-import 'package:liquid_glass_renderer/src/shaders.dart';
 
 import 'shared.dart';
 import 'submitted_scene_binding.dart';

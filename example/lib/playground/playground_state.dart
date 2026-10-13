@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/loupe/liquid_glass_loupe.dart';
-import 'package:liquid_glass_renderer_example/playground/backdrops.dart';
-import 'package:liquid_glass_renderer_example/playground/presets.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/loupe/liquid_glass_loupe.dart';
+import 'package:flutter_sea_glass_example/playground/backdrops.dart';
+import 'package:flutter_sea_glass_example/playground/presets.dart';
 
 /// The glass specimens shown on the stage.
 enum StageScene {

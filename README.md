@@ -1,30 +1,41 @@
-# Liquid Glass Renderer
+# flutter_sea_glass
 
-[![Pub Version](https://img.shields.io/pub/v/liquid_glass_renderer)](https://pub.dev/packages/liquid_glass_renderer)
-[![Code Coverage](./coverage.svg)](./test/)
+[![Pub Version](https://img.shields.io/pub/v/flutter_sea_glass)](https://pub.dev/packages/flutter_sea_glass)
 [![lints by lintervention][lintervention_badge]][lintervention_link]
 
-iOS 27-style Liquid Glass for Flutter: refraction through a rounded bevel,
-frost, tint, a directional glint, a dark border, and shapes that melt into each
-other. It is fitted against captures of Apple's own glass, and it ships presets
-for the regular, toolbar and clear materials, including the Settings Liquid
-Glass slider.
+Sea glass and liquid glass for Flutter.
 
-It reproduces the look with Flutter's own rendering; it does not use Apple's
-private material APIs.
+- **Sea glass:** tumbled, frosted, colored glass that filters the backdrop
+  deepest at its center, with a fine grain and a frosted rim. Colored glass
+  can be made clear (`SeaGlassFinish.colorClarity`) so it shows and bends
+  what is beneath while white glass stays frosted.
+- **Slab sea glass:** thick, milky pastel slabs that glow on the side away
+  from the light, with terrazzo flecks suspended inside, hand-cut outlines
+  and soft cast shadows under a scene light (`GlassLight`).
+- **Living glass:** organic outlines (`LiquidBlob`) that flow and breathe,
+  and drops that merge and pinch apart.
+- **Liquid glass:** iOS 27-style refraction through a rounded bevel, frost,
+  tint, a directional glint and shapes that melt into each other, with
+  presets fitted against captures of Apple's glass.
 
-| Light | Dark |
+It renders everything with Flutter's own pipeline (Impeller and Flutter
+GPU); it does not use any platform's private material APIs.
+
+| Sea glass | Slab sea glass |
 | --- | --- |
-| ![Tab bar in light mode](doc/readme/bottom-bar-light.jpg) | ![Tab bar in dark mode](doc/readme/bottom-bar-dark.jpg) |
-| ![Toolbar buttons in light mode](doc/readme/controls-light.jpg) | ![Toolbar buttons in dark mode](doc/readme/controls-dark.jpg) |
+| ![Sea glass controls](doc/readme/sea-glass-light.jpg) | ![Slab sea glass components](doc/readme/slab-sea-glass.jpg) |
 
-> **1.0 prerelease: the renderer was rewritten.**
+> **Based on liquid_glass_renderer.** flutter_sea_glass is a fork of
+> [liquid_glass_renderer](https://github.com/whynotmake-it/flutter_liquid_glass)
+> by Tim Lehmann ([whynotmake.it](https://whynotmake.it)), used under the
+> Apache License 2.0 (see [LICENSE](LICENSE) and [NOTICE](NOTICE)). It is
+> not affiliated with or endorsed by whynotmake.it, Apple or Google. The
+> widget API keeps the original's names (`LiquidGlass`, `LiquidGlassLayer`,
+> ...), so code written for it moves over by changing the import.
 >
-> `1.0.0-dev` replaces the whole API of `0.2.x`. There are no deprecations;
-> see the [changelog](CHANGELOG.md) for what moved where. Full glass needs
-> Impeller and the Flutter GPU API, which is still in preview. APIs and
-> rendering may change before 1.0. Profile your real screens on physical
-> devices before shipping.
+> This is a prerelease. Full glass needs Impeller and the Flutter GPU API,
+> which is still in preview; APIs and rendering may change. Profile your
+> real screens on physical devices before shipping.
 
 ## Contents
 
@@ -58,7 +69,7 @@ Wherever full glass is unavailable, layers switch to `FakeGlass`
 automatically.
 
 ```sh
-flutter pub add liquid_glass_renderer
+flutter pub add flutter_sea_glass
 ```
 
 ## Quick start
@@ -68,7 +79,7 @@ Glass samples the pixels behind it, so put your content and the glass in a
 
 ```dart
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
 
 class GlassPill extends StatelessWidget {
   const GlassPill({super.key});
@@ -501,7 +512,7 @@ buttons, a floating action button menu, daylight, dusk and a flashlight that
 follows the pointer, and a tap on G cycles the glass sets:
 
 ```sh
-cd packages/liquid_glass_renderer/example
+cd example
 flutter run -t lib/slab_sea_glass_main.dart --enable-impeller --enable-flutter-gpu
 ```
 
@@ -737,7 +748,7 @@ measures your own screens.
 ## Example playground
 
 ```sh
-cd packages/liquid_glass_renderer/example
+cd example
 flutter run --enable-impeller --enable-flutter-gpu
 ```
 

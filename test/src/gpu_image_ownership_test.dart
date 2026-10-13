@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:flutter_sea_glass/src/internal/flutter_gpu_geometry_renderer.dart';
+import 'package:flutter_sea_glass/src/shaders.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:liquid_glass_renderer/src/internal/flutter_gpu_geometry_renderer.dart';
-import 'package:liquid_glass_renderer/src/shaders.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

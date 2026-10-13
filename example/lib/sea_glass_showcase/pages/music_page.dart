@@ -3,10 +3,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart' show Icons;
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/pages/common.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/showcase_options.dart';
-import 'package:liquid_glass_renderer_example/sea_glass_showcase/showcase_style.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/pages/common.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/showcase_options.dart';
+import 'package:flutter_sea_glass_example/sea_glass_showcase/showcase_style.dart';
 
 /// Now playing: frosted controls lying across the lower edge of the album
 /// art, so the art refracts through the player card, and transport

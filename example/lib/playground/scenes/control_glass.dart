@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/draggable_glass.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/draggable_glass.dart';
 import 'package:motor/motor.dart';
 
 /// Size of the glyphs on glass controls: CupertinoIcons at this size match

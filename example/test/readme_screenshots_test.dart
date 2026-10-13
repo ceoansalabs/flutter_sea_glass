@@ -4,12 +4,12 @@ import 'dart:ui' as ui;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/app.dart';
+import 'package:flutter_sea_glass_example/playground/backdrops.dart';
+import 'package:flutter_sea_glass_example/playground/playground_state.dart';
+import 'package:flutter_sea_glass_example/playground/presets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/app.dart';
-import 'package:liquid_glass_renderer_example/playground/backdrops.dart';
-import 'package:liquid_glass_renderer_example/playground/playground_state.dart';
-import 'package:liquid_glass_renderer_example/playground/presets.dart';
 
 /// Directory the README screenshots are written to. The test only runs when
 /// it is set:

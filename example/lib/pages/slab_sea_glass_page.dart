@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/material.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
 
 /// A recreation of the Sea Glass design concept: a sheet of Material
 /// components in thick, milky pastel glass under a light that follows the
@@ -62,7 +62,7 @@ const _replies = {
       'and at low tide, where the waves leave the heavier stones.',
   'Which apps inspired this?':
       'Material You: its tonal colors, shapes and motion, rendered here as '
-      'tumbled glass with liquid_glass_renderer.',
+      'tumbled glass with flutter_sea_glass.',
 };
 
 const _menuItems = [

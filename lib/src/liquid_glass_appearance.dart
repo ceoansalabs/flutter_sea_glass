@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_color_model.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_settings.dart';
-import 'package:liquid_glass_renderer/src/sea_glass.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_color_model.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_settings.dart';
+import 'package:flutter_sea_glass/src/sea_glass.dart';
 
 /// Lightweight color and materialization controls for one glass shape.
 ///

@@ -53,7 +53,7 @@ abstract final class BackdropCaptureDebug {
     if (count <= 1 || (_lastReportedCount ?? 0) >= count) return;
     _lastReportedCount = count;
     debugPrint(
-      'liquid_glass_renderer: $count independent backdrop captures in this '
+      'flutter_sea_glass: $count independent backdrop captures in this '
       'frame. On Impeller each costs a full-screen readback (~115 mW GPU at '
       '120 Hz on a Pixel 10). Wrap the glass layers that sit over the same '
       'content in one BackdropGroup and pass useBackdropGroup: true (or share '

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/draggable_glass.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/draggable_glass.dart';
 
 /// The sea glass palette as tumbled pebbles, each its own irregular shape,
 /// above them a pebble that is alive.

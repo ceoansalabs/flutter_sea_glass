@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:liquid_glass_renderer_example/loupe/liquid_glass_loupe.dart';
-import 'package:liquid_glass_renderer_example/playground/playground_state.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/draggable_glass.dart';
+import 'package:flutter_sea_glass_example/loupe/liquid_glass_loupe.dart';
+import 'package:flutter_sea_glass_example/playground/playground_state.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/draggable_glass.dart';
 
 /// Draggable [LiquidGlassLoupe]s over the backdrop, which is their
 /// [LiquidGlassLoupeSource].

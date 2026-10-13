@@ -2,8 +2,8 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_gpu/gpu.dart' as gpu;
+import 'package:flutter_sea_glass/src/internal/flutter_gpu_geometry_renderer.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:liquid_glass_renderer/src/internal/flutter_gpu_geometry_renderer.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -13,10 +13,10 @@ void main() {
     'asset renderers share immutable pipeline resources',
     () async {
       final first = await FlutterGpuGeometryRenderer.fromAsset(
-        'build/shaderbundles/liquid_glass_renderer.shaderbundle',
+        'build/shaderbundles/flutter_sea_glass.shaderbundle',
       );
       final second = await FlutterGpuGeometryRenderer.fromAsset(
-        'build/shaderbundles/liquid_glass_renderer.shaderbundle',
+        'build/shaderbundles/flutter_sea_glass.shaderbundle',
       );
       addTearDown(first.dispose);
       addTearDown(second.dispose);
@@ -51,7 +51,7 @@ void main() {
       );
       expect(first.debugHostBufferBlockLength, greaterThan(0));
       final library = (await gpu.ShaderLibrary.fromAsset(
-        'build/shaderbundles/liquid_glass_renderer.shaderbundle',
+        'build/shaderbundles/flutter_sea_glass.shaderbundle',
       ))!;
       final size = library['GeometryFragment']!
           .getUniformSlot('GeometryUniforms')
@@ -69,7 +69,7 @@ void main() {
     'geometry renderer buckets dimensions without overwriting older images',
     () async {
       final renderer = await FlutterGpuGeometryRenderer.fromAsset(
-        'build/shaderbundles/liquid_glass_renderer.shaderbundle',
+        'build/shaderbundles/flutter_sea_glass.shaderbundle',
       );
       addTearDown(renderer.dispose);
 
@@ -120,7 +120,7 @@ void main() {
       debugDefaultTargetPlatformOverride = TargetPlatform.macOS;
       addTearDown(() => debugDefaultTargetPlatformOverride = null);
       final renderer = await FlutterGpuGeometryRenderer.fromAsset(
-        'build/shaderbundles/liquid_glass_renderer.shaderbundle',
+        'build/shaderbundles/flutter_sea_glass.shaderbundle',
       );
       addTearDown(renderer.dispose);
 
@@ -182,7 +182,7 @@ void main() {
         List.generate(
           40,
           (_) => FlutterGpuGeometryRenderer.fromAsset(
-            'build/shaderbundles/liquid_glass_renderer.shaderbundle',
+            'build/shaderbundles/flutter_sea_glass.shaderbundle',
           ),
         ),
       );

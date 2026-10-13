@@ -2,10 +2,10 @@ import 'dart:math' as math;
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter/painting.dart';
-import 'package:liquid_glass_renderer/src/glass_light.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_appearance.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_settings.dart';
-import 'package:liquid_glass_renderer/src/slab_sea_glass.dart';
+import 'package:flutter_sea_glass/src/glass_light.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_appearance.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_settings.dart';
+import 'package:flutter_sea_glass/src/slab_sea_glass.dart';
 import 'package:meta/meta.dart';
 
 /// The tumbled, frosted surface of sea glass.

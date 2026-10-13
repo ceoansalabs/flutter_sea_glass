@@ -1,5 +1,5 @@
-name: liquid_glass_renderer_example
-description: "Liquid Glass playground for liquid_glass_renderer."
+name: flutter_sea_glass_example
+description: "Liquid Glass playground for flutter_sea_glass."
 publish_to: 'none'
 version: 0.1.0
 
@@ -11,7 +11,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
-  liquid_glass_renderer:
+  flutter_sea_glass:
     path: ../
   motor: ^1.1.0
   stupid_simple_sheet: ^1.0.0-dev.4

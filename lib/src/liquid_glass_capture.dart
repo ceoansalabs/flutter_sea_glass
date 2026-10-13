@@ -2,7 +2,7 @@
 
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/src/internal/capture_pass.dart';
+import 'package:flutter_sea_glass/src/internal/capture_pass.dart';
 
 /// Captures the backdrop once for all the glass inside it.
 ///

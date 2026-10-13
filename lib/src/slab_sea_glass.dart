@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/painting.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_appearance.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_settings.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_appearance.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_settings.dart';
 
 /// A set of glass colors from the Sea Glass design concept, by the role each
 /// plays in a UI.

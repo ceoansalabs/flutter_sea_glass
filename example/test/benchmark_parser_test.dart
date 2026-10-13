@@ -917,7 +917,7 @@ void _writeScenario(
 
 const _gpuXml = '''
 <trace-query-result>
-  <process id="1" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="1" fmt="flutter_sea_glass_example (42)"></process>
   <start-time id="10">0</start-time>
   <duration id="20">100000000</duration>
   <row><start-time ref="10"/><duration ref="20"/><process ref="1"/></row>
@@ -932,7 +932,7 @@ const _gpuXml = '''
 // value as two's-complement signed and exclude the row from the union.
 const _gpuXmlWithWrappedDuration = '''
 <trace-query-result>
-  <process id="1" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="1" fmt="flutter_sea_glass_example (42)"></process>
   <start-time id="10">0</start-time>
   <duration id="20">100000000</duration>
   <duration id="21" fmt="307445734.56 min">18446744073709540491</duration>
@@ -951,7 +951,7 @@ const _gpuXmlWithWrappedDuration = '''
 // (observed inflating independent16Motion to a false 100% GPU busy).
 const _gpuXmlWithLatencyColumn = '''
 <trace-query-result>
-  <process id="1" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="1" fmt="flutter_sea_glass_example (42)"></process>
   <start-time id="10">0</start-time>
   <duration id="20">100000000</duration>
   <duration id="30" fmt="507.54 ms">507543792</duration>
@@ -964,7 +964,7 @@ const _gpuXmlWithLatencyColumn = '''
 const _twoWindowSignpostXml = '''
 <trace-query-result>
   <schema name="os-signpost"></schema>
-  <process id="7" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="7" fmt="flutter_sea_glass_example (42)"></process>
   <row><event-time id="1">0</event-time><process ref="7"/><event-type id="2">Begin</event-type><os-signpost-identifier id="3">42</os-signpost-identifier><signpost-name id="4">LiquidGlassBenchmark</signpost-name><subsystem id="5">com.example.liquidGlassRenderer</subsystem><os-log-metadata id="6" fmt="staticSingle"></os-log-metadata></row>
   <row><event-time>1000000000</event-time><process ref="7"/><event-type>End</event-type><os-signpost-identifier ref="3"/><signpost-name ref="4"/><subsystem ref="5"/><os-log-metadata ref="6"/></row>
   <row><event-time>1000000000</event-time><process ref="7"/><event-type>Begin</event-type><os-signpost-identifier>43</os-signpost-identifier><signpost-name ref="4"/><subsystem ref="5"/><os-log-metadata ref="6"/></row>
@@ -974,7 +974,7 @@ const _twoWindowSignpostXml = '''
 
 const _gpuXmlTwoWindows = '''
 <trace-query-result>
-  <process id="1" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="1" fmt="flutter_sea_glass_example (42)"></process>
   <start-time id="10">0</start-time>
   <duration id="20">100000000</duration>
   <row><start-time ref="10"/><duration ref="20"/><process ref="1"/></row>
@@ -984,7 +984,7 @@ const _gpuXmlTwoWindows = '''
 
 const _gpuXmlFrameWindows = '''
 <trace-query-result>
-  <process id="1" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="1" fmt="flutter_sea_glass_example (42)"></process>
   <start-time id="10">0</start-time>
   <duration id="20">100000000</duration>
   <row><start-time ref="10"/><duration ref="20"/><process ref="1"/></row>
@@ -996,7 +996,7 @@ const _gpuXmlFrameWindows = '''
 // uniform capture that passes the intervals-per-frame uniformity check.
 const _gpuXmlThreeFrameWindows = '''
 <trace-query-result>
-  <process id="1" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="1" fmt="flutter_sea_glass_example (42)"></process>
   <start-time id="10">0</start-time>
   <duration id="20">100000000</duration>
   <row><start-time ref="10"/><duration ref="20"/><process ref="1"/></row>
@@ -1010,7 +1010,7 @@ const _gpuXmlThreeFrameWindows = '''
 // loss in the earlier windows (observed on saturated real captures).
 const _gpuXmlNonUniformCapture = '''
 <trace-query-result>
-  <process id="1" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="1" fmt="flutter_sea_glass_example (42)"></process>
   <start-time id="10">0</start-time>
   <duration id="20">100000000</duration>
   <row><start-time ref="10"/><duration ref="20"/><process ref="1"/></row>
@@ -1032,7 +1032,7 @@ const _gpuXmlNonUniformCapture = '''
 // kdebug buffer starved mid-recording, so the capture is rejected outright.
 const _gpuXmlStarvedWindow = '''
 <trace-query-result>
-  <process id="1" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="1" fmt="flutter_sea_glass_example (42)"></process>
   <start-time id="10">0</start-time>
   <duration id="20">100000000</duration>
   <row><start-time ref="10"/><duration ref="20"/><process ref="1"/></row>
@@ -1047,7 +1047,7 @@ const _tocXmlTwoSeconds = '''
       <start-date>2026-09-11T10:00:00.000Z</start-date>
       <duration>2</duration>
       <target>
-        <process type="attached" name="liquid_glass_renderer_example" pid="42"/>
+        <process type="attached" name="flutter_sea_glass_example" pid="42"/>
       </target>
     </info>
   </run>
@@ -1057,7 +1057,7 @@ const _tocXmlTwoSeconds = '''
 const _metalXml = '''
 <trace-query-result>
   <schema name="metal-resource-allocations"></schema>
-  <process id="1" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="1" fmt="flutter_sea_glass_example (42)"></process>
   <gpu-memory-event-name id="10">Allocation</gpu-memory-event-name>
   <gpu-memory-event-name id="11">Deallocation</gpu-memory-event-name>
   <size-in-bytes id="20">100</size-in-bytes>
@@ -1076,7 +1076,7 @@ const _emptyMetalXml = '''
 const _signpostXml = '''
 <trace-query-result>
   <schema name="os-signpost"></schema>
-  <process id="7" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="7" fmt="flutter_sea_glass_example (42)"></process>
   <row><event-time id="1">0</event-time><process ref="7"/><event-type id="2">Begin</event-type><os-signpost-identifier id="3">42</os-signpost-identifier><signpost-name id="4">LiquidGlassBenchmark</signpost-name><subsystem id="5">com.example.liquidGlassRenderer</subsystem><os-log-metadata id="6" fmt="staticSingle"></os-log-metadata></row>
   <row><event-time>1000000000</event-time><process ref="7"/><event-type>End</event-type><os-signpost-identifier ref="3"/><signpost-name ref="4"/><subsystem ref="5"/><os-log-metadata ref="6"/></row>
 </trace-query-result>
@@ -1085,7 +1085,7 @@ const _signpostXml = '''
 const _shortSignpostXml = '''
 <trace-query-result>
   <schema name="os-signpost"></schema>
-  <process id="7" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="7" fmt="flutter_sea_glass_example (42)"></process>
   <row><event-time id="1">0</event-time><process ref="7"/><event-type id="2">Begin</event-type><os-signpost-identifier id="3">42</os-signpost-identifier><signpost-name id="4">LiquidGlassBenchmark</signpost-name><subsystem id="5">com.example.liquidGlassRenderer</subsystem><os-log-metadata id="6" fmt="staticSingle"></os-log-metadata></row>
   <row><event-time>180000000</event-time><process ref="7"/><event-type>End</event-type><os-signpost-identifier ref="3"/><signpost-name ref="4"/><subsystem ref="5"/><os-log-metadata ref="6"/></row>
 </trace-query-result>
@@ -1094,7 +1094,7 @@ const _shortSignpostXml = '''
 const _adaptiveSignpostXml = '''
 <trace-query-result>
   <schema name="os-signpost"></schema>
-  <process id="7" fmt="liquid_glass_renderer_example (42)"></process>
+  <process id="7" fmt="flutter_sea_glass_example (42)"></process>
   <row><event-time id="1">0</event-time><process ref="7"/><event-type id="2">Begin</event-type><os-signpost-identifier id="3">41</os-signpost-identifier><signpost-name id="4">LiquidGlassBenchmark</signpost-name><subsystem id="5">com.example.liquidGlassRenderer</subsystem><os-log-metadata id="6" fmt="staticSingle"></os-log-metadata></row>
   <row><event-time>180000000</event-time><process ref="7"/><event-type>End</event-type><os-signpost-identifier ref="3"/><signpost-name ref="4"/><subsystem ref="5"/><os-log-metadata ref="6"/></row>
   <row><event-time>0</event-time><process ref="7"/><event-type>Begin</event-type><os-signpost-identifier>42</os-signpost-identifier><signpost-name ref="4"/><subsystem ref="5"/><os-log-metadata ref="6"/></row>
@@ -1109,7 +1109,7 @@ const _tocXml = '''
       <start-date>2026-09-11T10:00:00.250Z</start-date>
       <duration>0.75</duration>
       <target>
-        <process type="attached" name="liquid_glass_renderer_example" pid="42"/>
+        <process type="attached" name="flutter_sea_glass_example" pid="42"/>
       </target>
     </info>
   </run>

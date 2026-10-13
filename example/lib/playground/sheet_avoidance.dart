@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer_example/bottom_bar/listenable_transform.dart';
+import 'package:flutter_sea_glass_example/bottom_bar/listenable_transform.dart';
 
 /// Tells the stage content below it how far the settings sheet currently
 /// covers the stage, so [AvoidSheet] can move it out of the way.

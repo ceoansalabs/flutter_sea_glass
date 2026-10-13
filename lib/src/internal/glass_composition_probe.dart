@@ -1,8 +1,8 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/rendering.dart';
-import 'package:liquid_glass_renderer/src/internal/ancestor_clip.dart';
-import 'package:liquid_glass_renderer/src/rendering/liquid_glass_render_object.dart';
+import 'package:flutter_sea_glass/src/internal/ancestor_clip.dart';
+import 'package:flutter_sea_glass/src/rendering/liquid_glass_render_object.dart';
 import 'package:meta/meta.dart';
 
 /// Seeds an enclosing fractional-opacity surface with its backdrop.

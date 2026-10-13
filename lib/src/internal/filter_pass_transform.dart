@@ -1,6 +1,6 @@
 import 'package:flutter/rendering.dart';
-import 'package:liquid_glass_renderer/src/internal/glass_composition_probe.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_capture.dart';
+import 'package:flutter_sea_glass/src/internal/glass_composition_probe.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_capture.dart';
 import 'package:meta/meta.dart';
 
 /// Transform from [owner]'s local coordinates to the logical coordinates of

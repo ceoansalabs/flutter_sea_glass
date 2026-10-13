@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_sea_glass_example/playground/backdrops.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:liquid_glass_renderer_example/playground/backdrops.dart';
 
 void main() {
   testWidgets('the backdrop pager creates its spring before it is disposed', (

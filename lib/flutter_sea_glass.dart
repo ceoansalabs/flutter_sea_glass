@@ -1,5 +1,5 @@
 /// Liquid Glass Effect for Flutter
-library liquid_glass_renderer;
+library flutter_sea_glass;
 
 import 'package:flutter/foundation.dart' show kDebugMode;
 

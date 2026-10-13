@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/internal/render_liquid_glass_geometry.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_render_scope.dart';
-import 'package:liquid_glass_renderer/src/rendering/liquid_glass_render_object.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/internal/render_liquid_glass_geometry.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_render_scope.dart';
+import 'package:flutter_sea_glass/src/rendering/liquid_glass_render_object.dart';
 import 'package:meta/meta.dart';
 
 /// A widget that groups multiple liquid glass shapes for blending.

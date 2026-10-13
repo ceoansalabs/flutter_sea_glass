@@ -380,7 +380,7 @@ class MainFlutterWindow: NSWindow {
     RegisterGeneratedPlugins(registry: flutterViewController)
 
     let benchmarkChannel = FlutterMethodChannel(
-      name: "dev.liquid_glass_renderer/benchmark",
+      name: "dev.flutter_sea_glass/benchmark",
       binaryMessenger: flutterViewController.engine.binaryMessenger
     )
     benchmarkChannel.setMethodCallHandler { [weak self] call, result in

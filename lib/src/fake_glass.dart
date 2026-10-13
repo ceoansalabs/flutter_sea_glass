@@ -4,15 +4,15 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/glass_shadow.dart';
-import 'package:liquid_glass_renderer/src/internal/backdrop_capture_debug.dart';
-import 'package:liquid_glass_renderer/src/internal/fake_glass_color.dart';
-import 'package:liquid_glass_renderer/src/internal/multi_shader_builder.dart';
-import 'package:liquid_glass_renderer/src/internal/optimized_clip.dart';
-import 'package:liquid_glass_renderer/src/internal/paint_fake_glass_surface.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_render_scope.dart';
-import 'package:liquid_glass_renderer/src/shaders.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/glass_shadow.dart';
+import 'package:flutter_sea_glass/src/internal/backdrop_capture_debug.dart';
+import 'package:flutter_sea_glass/src/internal/fake_glass_color.dart';
+import 'package:flutter_sea_glass/src/internal/multi_shader_builder.dart';
+import 'package:flutter_sea_glass/src/internal/optimized_clip.dart';
+import 'package:flutter_sea_glass/src/internal/paint_fake_glass_surface.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_render_scope.dart';
+import 'package:flutter_sea_glass/src/shaders.dart';
 import 'package:meta/meta.dart';
 
 /// A lower-cost approximation of [LiquidGlass] without refraction geometry.
@@ -70,7 +70,7 @@ class FakeGlass extends StatelessWidget {
     ShaderKeys.fakeGlassSurface,
   ];
 
-  /// {@macro liquid_glass_renderer.LiquidGlass.shape}
+  /// {@macro flutter_sea_glass.LiquidGlass.shape}
   final LiquidShape shape;
 
   /// The settings for the glass effect.

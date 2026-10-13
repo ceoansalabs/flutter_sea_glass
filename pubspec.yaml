@@ -1,18 +1,22 @@
-name: liquid_glass_renderer
-description: An iOS 27-style liquid glass renderer for Flutter.
-version: 1.0.0-dev.1
+name: flutter_sea_glass
+description: >-
+  Sea glass and liquid glass for Flutter: tumbled, frosted and colored glass,
+  milky pastel slabs and living shapes, rendered with Impeller.
+version: 0.1.0-dev.1
 
-homepage: https://whynotmake.it
-repository: https://github.com/whynotmake-it/flutter_liquid_glass/tree/main/packages/liquid_glass_renderer
+repository: https://github.com/padmanabanSampath/flutter_sea_glass
+issue_tracker: https://github.com/padmanabanSampath/flutter_sea_glass/issues
 screenshots:
-  - description: "A liquid glass button and toolbar blending together"
-    path: doc/readme/blend-light.jpg
+  - description: "Sea glass controls in light mode"
+    path: doc/readme/sea-glass-light.jpg
+  - description: "Slab sea glass components"
+    path: doc/readme/slab-sea-glass.jpg
 
 topics:
+  - sea-glass
   - liquid-glass
-  - apple
+  - glassmorphism
   - shaders
-  - flutter
   - effects
 
 environment:

@@ -1,10 +1,10 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
-import 'package:liquid_glass_renderer/src/internal/flutter_gpu_geometry_renderer.dart';
-import 'package:liquid_glass_renderer/src/internal/multi_shader_builder.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass.dart';
-import 'package:liquid_glass_renderer/src/shaders.dart';
+import 'package:flutter_sea_glass/src/internal/flutter_gpu_geometry_renderer.dart';
+import 'package:flutter_sea_glass/src/internal/multi_shader_builder.dart';
+import 'package:flutter_sea_glass/src/liquid_glass.dart';
+import 'package:flutter_sea_glass/src/shaders.dart';
 
 /// Implementation of [LiquidGlass.precache].
 ///
@@ -53,7 +53,7 @@ Future<void> _guard(Future<void> Function() load) async {
       FlutterErrorDetails(
         exception: error,
         stack: stackTrace,
-        library: 'liquid_glass_renderer',
+        library: 'flutter_sea_glass',
         context: ErrorDescription('while precaching liquid glass shaders'),
       ),
     );

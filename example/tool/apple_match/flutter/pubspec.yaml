@@ -10,10 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  liquid_glass_renderer:
+  flutter_sea_glass:
     path: ../../../..
   # For the example app's LiquidGlassLoupe (example/lib/loupe/).
-  liquid_glass_renderer_example:
+  flutter_sea_glass_example:
     path: ../../..
 
 dev_dependencies:

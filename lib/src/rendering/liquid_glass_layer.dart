@@ -1,31 +1,31 @@
 // ignore_for_file: avoid_setters_without_getters, cascade_invocations
 
 import 'dart:math';
-import 'dart:ui';
 import 'dart:ui' as ui;
+import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/internal/ancestor_clip.dart';
+import 'package:flutter_sea_glass/src/internal/backdrop_capture_debug.dart';
+import 'package:flutter_sea_glass/src/internal/filter_pass_transform.dart';
+import 'package:flutter_sea_glass/src/internal/flutter_gpu_geometry_renderer.dart';
+import 'package:flutter_sea_glass/src/internal/multi_shader_builder.dart';
+import 'package:flutter_sea_glass/src/internal/render_liquid_glass_geometry.dart';
+import 'package:flutter_sea_glass/src/internal/rounded_superellipse_parameters.dart';
+import 'package:flutter_sea_glass/src/internal/snap_rect_to_pixels.dart';
+import 'package:flutter_sea_glass/src/internal/transform_tracking_repaint_boundary_mixin.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_capture.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_color_model.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_render_scope.dart';
+import 'package:flutter_sea_glass/src/liquid_glass_settings.dart';
+import 'package:flutter_sea_glass/src/logging.dart';
+import 'package:flutter_sea_glass/src/rendering/consolidated_fake_glass_layer.dart';
+import 'package:flutter_sea_glass/src/rendering/liquid_glass_render_object.dart';
+import 'package:flutter_sea_glass/src/shaders.dart';
 import 'package:flutter_shaders/flutter_shaders.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/internal/ancestor_clip.dart';
-import 'package:liquid_glass_renderer/src/internal/backdrop_capture_debug.dart';
-import 'package:liquid_glass_renderer/src/internal/filter_pass_transform.dart';
-import 'package:liquid_glass_renderer/src/internal/flutter_gpu_geometry_renderer.dart';
-import 'package:liquid_glass_renderer/src/internal/multi_shader_builder.dart';
-import 'package:liquid_glass_renderer/src/internal/render_liquid_glass_geometry.dart';
-import 'package:liquid_glass_renderer/src/internal/rounded_superellipse_parameters.dart';
-import 'package:liquid_glass_renderer/src/internal/snap_rect_to_pixels.dart';
-import 'package:liquid_glass_renderer/src/internal/transform_tracking_repaint_boundary_mixin.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_capture.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_color_model.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_render_scope.dart';
-import 'package:liquid_glass_renderer/src/liquid_glass_settings.dart';
-import 'package:liquid_glass_renderer/src/logging.dart';
-import 'package:liquid_glass_renderer/src/rendering/consolidated_fake_glass_layer.dart';
-import 'package:liquid_glass_renderer/src/rendering/liquid_glass_render_object.dart';
-import 'package:liquid_glass_renderer/src/shaders.dart';
 
 /// Represents a layer of multiple [LiquidGlass] shapes or
 /// [LiquidGlassBlendGroup]s that have shared [LiquidGlassSettings] and will be
@@ -179,7 +179,7 @@ class _LiquidGlassLayerState extends State<LiquidGlassLayer>
   void _logDebugFallback(String message) {
     if (!kDebugMode || _loggedFallback) return;
     _loggedFallback = true;
-    debugPrint('liquid_glass_renderer: $message');
+    debugPrint('flutter_sea_glass: $message');
   }
 
   void _tryCreateCachedGpuGeometryRenderer() {
@@ -1644,7 +1644,7 @@ class RenderLiquidGlassLayer extends LiquidGlassRenderObject
     if (!kDebugMode || _debugWarnedShapeLimit) return;
     _debugWarnedShapeLimit = true;
     debugPrint(
-      'liquid_glass_renderer: a LiquidGlassLayer holds at most '
+      'flutter_sea_glass: a LiquidGlassLayer holds at most '
       '${LiquidGlassBlendGroup.maxShapesPerLayer} shapes; $dropped more are '
       'not drawn. Split the glass across layers.',
     );

@@ -284,7 +284,7 @@ def resolve_scenarios(spec):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--arms", required=True, help="name=pkg,name=pkg")
-    ap.add_argument("--activity", default="com.example.liquid_glass_renderer_example.MainActivity")
+    ap.add_argument("--activity", default="com.example.flutter_sea_glass_example.MainActivity")
     ap.add_argument("--scenarios", required=True)
     ap.add_argument("--reps", type=int, default=5)
     ap.add_argument("--warmup", type=int, default=4)

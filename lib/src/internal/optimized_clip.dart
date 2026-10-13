@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:liquid_glass_renderer/src/liquid_shape.dart';
+import 'package:flutter_sea_glass/src/liquid_shape.dart';
 
 /// Clips its child using the given [shape].
 ///

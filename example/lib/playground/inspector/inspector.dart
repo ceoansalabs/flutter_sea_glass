@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/playground/backdrops.dart';
-import 'package:liquid_glass_renderer_example/playground/inspector/capsule_segmented_control.dart';
-import 'package:liquid_glass_renderer_example/playground/inspector/grouped_list.dart';
-import 'package:liquid_glass_renderer_example/playground/inspector/material_sections.dart';
-import 'package:liquid_glass_renderer_example/playground/playground_state.dart';
-import 'package:liquid_glass_renderer_example/playground/presets.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/playground/backdrops.dart';
+import 'package:flutter_sea_glass_example/playground/inspector/capsule_segmented_control.dart';
+import 'package:flutter_sea_glass_example/playground/inspector/grouped_list.dart';
+import 'package:flutter_sea_glass_example/playground/inspector/material_sections.dart';
+import 'package:flutter_sea_glass_example/playground/playground_state.dart';
+import 'package:flutter_sea_glass_example/playground/presets.dart';
 
 /// The settings sheet that drives the stage.
 class Inspector extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/draggable_glass.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/sea_glass_palette.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/draggable_glass.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/sea_glass_palette.dart';
 
 /// Shapes with different appearances in one layer and one blend group.
 ///

@@ -5,7 +5,7 @@ void main() {
   const expectFallback = bool.fromEnvironment('EXPECT_FLUTTER_GPU_FALLBACK');
   test('flutter_gpu geometry shader pipeline can be created', () async {
     final library = await gpu.ShaderLibrary.fromAsset(
-      'build/shaderbundles/liquid_glass_renderer.shaderbundle',
+      'build/shaderbundles/flutter_sea_glass.shaderbundle',
     );
     expect(library, isNotNull);
 

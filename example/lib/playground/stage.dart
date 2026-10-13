@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer_example/playground/playground_state.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/blend_scene.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/colors_scene.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/controls_scene.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/loupe_scene.dart';
-import 'package:liquid_glass_renderer_example/playground/scenes/sea_glass_scene.dart';
-import 'package:liquid_glass_renderer_example/playground/sheet_avoidance.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass_example/playground/playground_state.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/blend_scene.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/colors_scene.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/controls_scene.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/loupe_scene.dart';
+import 'package:flutter_sea_glass_example/playground/scenes/sea_glass_scene.dart';
+import 'package:flutter_sea_glass_example/playground/sheet_avoidance.dart';
 
 /// All glass on the stage, rendered by a single [LiquidGlassLayer], with the
 /// settings button in its top trailing corner.

@@ -6,7 +6,7 @@ void main(List<String> args) async {
     await buildShaderBundleJson(
       buildInput: input,
       buildOutput: output,
-      manifestFileName: 'liquid_glass_renderer.shaderbundle.json',
+      manifestFileName: 'flutter_sea_glass.shaderbundle.json',
       includeDirectories: [
         input.packageRoot.resolve('lib/assets/shaders/gpu/'),
       ],

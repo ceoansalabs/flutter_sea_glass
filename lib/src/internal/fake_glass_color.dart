@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 import 'dart:ui';
 
-import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
-import 'package:liquid_glass_renderer/src/sea_glass.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
+import 'package:flutter_sea_glass/src/sea_glass.dart';
 import 'package:meta/meta.dart';
 
 /// Affine tint-over-backdrop followed by saturation, expressed as Flutter's

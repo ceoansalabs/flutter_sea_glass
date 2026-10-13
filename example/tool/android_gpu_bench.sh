@@ -5,7 +5,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 EXAMPLE_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 REPO_DIR="$(cd "$EXAMPLE_DIR/../../.." && pwd)"
-PKG="com.example.liquid_glass_renderer_example"
+PKG="com.example.flutter_sea_glass_example"
 ACTIVITY="$PKG/.MainActivity"
 # shellcheck source=bench_scenes.sh
 source "$SCRIPT_DIR/bench_scenes.sh"
