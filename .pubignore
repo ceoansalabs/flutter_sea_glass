@@ -16,3 +16,23 @@ doc/showcase.gif
 doc/example.gif
 doc/shapes.png
 doc/blended.png
+
+# Local build and tool output. A .pubignore replaces .gitignore for pub, so
+# these are listed here. build/shaderbundles/ is a declared asset folder and
+# stays.
+build/native_assets/
+build/test_cache/
+build/unit_test_assets/
+.dart_tool/
+example/build/
+example/.dart_tool/
+example/android/.gradle/
+example/android/local.properties
+pubspec.lock
+example/pubspec.lock
+pubspec_overrides.yaml
+example/pubspec_overrides.yaml
+
+# Media the README does not use.
+doc/generated/
+doc/screenshot.png
