@@ -4,8 +4,8 @@ description: >-
   milky pastel slabs and living shapes, rendered with Impeller.
 version: 0.1.0-dev.1
 
-repository: https://github.com/padmanabanSampath/flutter_sea_glass
-issue_tracker: https://github.com/padmanabanSampath/flutter_sea_glass/issues
+repository: https://github.com/ceoansalabs/flutter_sea_glass
+issue_tracker: https://github.com/ceoansalabs/flutter_sea_glass/issues
 screenshots:
   - description: "Sea glass controls in light mode"
     path: doc/readme/sea-glass-light.jpg

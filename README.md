@@ -1049,7 +1049,7 @@ from one style object.
 
 ## Contributors
 
-- **[padmanabanSampath](https://github.com/padmanabanSampath)**: creator
+- **[ansalabs](https://github.com/ceoansalabs)**: creator
   and maintainer of flutter_sea_glass.
 - **[Claude](https://www.anthropic.com/claude)** (Anthropic, through
   [Claude Code](https://claude.com/claude-code)): core contributor. Built
