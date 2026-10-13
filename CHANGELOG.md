@@ -109,6 +109,11 @@ released in liquid_glass_renderer.
 
 ### Fixes
 
+- `LiquidGlass.precache()` no longer hangs on Android when awaited before
+  `runApp`. Checking shader support and loading shaders there block on the
+  engine's Impeller context, which arrives with the first frame, so the
+  app stayed on its splash. On Android it now returns at once and loads
+  everything right after the first frame.
 - A layer that has to drop shapes past its 16-shape limit now warns once in
   debug builds instead of dropping them silently.
 - Geometry passes no longer read uniforms of a later frame. The shared

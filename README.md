@@ -132,7 +132,7 @@ then tune them (see [Settings reference](#settings-reference)).
 
 | Glass | Looks like | Settings | Color a shape with |
 | --- | --- | --- | --- |
-| Sea glass | Tumbled, frosted, colored glass; deepest at its center, a frosted rim, a fine grain | `LiquidGlassSettings.seaGlass()` | `LiquidGlassAppearance.seaGlass(color: SeaGlassColors.teal)` |
+| Sea glass | Tumbled, frosted, colored glass; deepest at its center, a frosted rim, a fine grain | `LiquidGlassSettings.seaGlass()`; for flat tiles and bars add `refractionHeight: 36, refractionAmount: 16` and `SeaGlassFinish(gloss: 0)`, since the preset's 100 pt glossy dome suits pebbles | `LiquidGlassAppearance.seaGlass(color: SeaGlassColors.teal)` |
 | Clear sea glass | The same, with colored glass clear enough to show and bend what is beneath | `LiquidGlassSettings.seaGlass(finish: const SeaGlassFinish(colorClarity: .6))` | as above |
 | Slab sea glass | Thick, milky pastel slabs that glow on the side away from the light and cast soft shadows | `LiquidGlassSettings.slabSeaGlass()` | `SlabSeaGlass.appearance(SlabSeaGlass.original.primary)` |
 | Clear slab | The pastel slabs made translucent, frosted or clear | `slabSeaGlass` with a low `scatter` and a wider lens (see [Recipes](#recipes)) | as above |
@@ -227,7 +227,12 @@ and rebuild with new ones to switch the whole UI between glasses:
 
 ```dart
 LiquidGlassSettings settingsFor(Glass glass) => switch (glass) {
-  Glass.sea => LiquidGlassSettings.seaGlass(),
+  // A flat lens for tiles: the preset's 100 pt dome suits pebbles.
+  Glass.sea => LiquidGlassSettings.seaGlass(
+    finish: const SeaGlassFinish(gloss: 0),
+    refractionHeight: 36,
+    refractionAmount: 16,
+  ),
   Glass.slab => LiquidGlassSettings.slabSeaGlass(),
   Glass.clearSlab => LiquidGlassSettings.slabSeaGlass(
     finish: const SeaGlassFinish.slab().copyWith(scatter: .24, colorClarity: .6),

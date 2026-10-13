@@ -20,9 +20,12 @@ enum Glass { sea, slab, clearSlab }
 
 /// The settings of each glass.
 LiquidGlassSettings settingsFor(Glass glass) => switch (glass) {
-  // Tumbled, frosted sea glass; colored glass made half clear.
+  // Tumbled, frosted sea glass with a flat lens; colored glass made half
+  // clear. The preset's default 100 pt dome suits pebbles more than tiles.
   Glass.sea => LiquidGlassSettings.seaGlass(
-    finish: const SeaGlassFinish(colorClarity: .5),
+    finish: const SeaGlassFinish(gloss: 0, colorClarity: .5),
+    refractionHeight: 36,
+    refractionAmount: 16,
   ),
   // Milky pastel slabs, lit from above, casting soft shadows.
   Glass.slab => LiquidGlassSettings.slabSeaGlass(),
@@ -116,6 +119,10 @@ class _GuidePageState extends State<GuidePage> {
                             ])
                               _Tile(
                                 label: label,
+                                // Deep sea glass needs light ink.
+                                ink: _on.contains(label) && _glass == Glass.sea
+                                    ? const Color(0xFFFFFFFF)
+                                    : const Color(0xFF173A40),
                                 appearance: _tile(_on.contains(label)),
                                 onTap: () => setState(() {
                                   if (!_on.remove(label)) _on.add(label);
@@ -154,11 +161,13 @@ class _GuidePageState extends State<GuidePage> {
 class _Tile extends StatelessWidget {
   const _Tile({
     required this.label,
+    required this.ink,
     required this.appearance,
     required this.onTap,
   });
 
   final String label;
+  final Color ink;
   final LiquidGlassAppearance appearance;
   final VoidCallback onTap;
 
@@ -176,10 +185,7 @@ class _Tile extends StatelessWidget {
             child: Center(
               child: Text(
                 label,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xFF173A40),
-                ),
+                style: TextStyle(fontWeight: FontWeight.w600, color: ink),
               ),
             ),
           ),

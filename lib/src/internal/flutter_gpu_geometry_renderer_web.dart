@@ -22,6 +22,8 @@ class FlutterGpuGeometryRenderer {
   static FlutterGpuGeometryRenderer? tryCreateCached(String assetKey) => null;
 
   /// There is no Flutter GPU context on the web.
+  static bool get gpuContextAwaitsFirstFrame => false;
+
   static Future<void> waitUntilGpuContextAvailable() => Future.value();
 
   static int get debugTotalRenderCount => 0;

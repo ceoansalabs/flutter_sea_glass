@@ -145,6 +145,11 @@ class FlutterGpuGeometryRenderer {
   /// if needed, including before `runApp`. Remove it once the engine creates
   /// the context before the first frame or offers a non-blocking way to wait
   /// for it. On every other platform it completes immediately.
+  /// Whether the engine creates its GPU context with the first frame, so
+  /// nothing may wait on it before `runApp`. Unlike `defaultTargetPlatform`,
+  /// this is the platform the app runs on, also in tests.
+  static bool get gpuContextAwaitsFirstFrame => Platform.isAndroid;
+
   static Future<void> waitUntilGpuContextAvailable() async {
     if (!Platform.isAndroid) return;
     await WidgetsFlutterBinding.ensureInitialized()
