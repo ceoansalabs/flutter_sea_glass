@@ -53,6 +53,7 @@ GPU); it does not use any platform's private material APIs.
 - [Glass on glass and `LiquidGlassCapture`](#glass-on-glass-and-liquidglasscapture)
 - [Performance](#performance)
 - [Example playground](#example-playground)
+- [Contributors](#contributors)
 
 ## Requirements
 
@@ -770,6 +771,19 @@ component sheet.
 - One corner radius per shape.
 - A glass widget's child is painted on top of the glass, never refracted by
   it.
+
+## Contributors
+
+- **[padmanabanSampath](https://github.com/padmanabanSampath)**: creator
+  and maintainer of flutter_sea_glass.
+- **[Claude](https://www.anthropic.com/claude)** (Anthropic, through
+  [Claude Code](https://claude.com/claude-code)): core contributor. Built
+  much of flutter_sea_glass with the maintainer: clear colored glass, flecks
+  inside slab glass, the shadow and rendering fixes, the sea glass showcase
+  and the package split.
+- **Tim Lehmann** ([whynotmake.it](https://whynotmake.it)):
+  author of [liquid_glass_renderer](https://github.com/whynotmake-it/flutter_liquid_glass),
+  which this package is built on, together with its contributors.
 
 [lintervention_link]: https://github.com/whynotmake-it/lintervention
 [lintervention_badge]: https://img.shields.io/badge/lints_by-lintervention-3A5A40
