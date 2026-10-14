@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_sea_glass/liquid_glass_renderer.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
 
 /// The glass a [MineralSeaGlassPage] compares mineral sea glass with.
 enum MineralPageGlass {

@@ -1,13 +1,14 @@
 # flutter_sea_glass examples
 
-Four apps, each run from this directory with `flutter run -t <file>` on an
+Five apps, each run from this directory with `flutter run -t <file>` on an
 Impeller device with Flutter GPU (iOS, Android, macOS):
 
 | Entry point | What it is |
 | --- | --- |
-| `lib/sea_glass_showcase_main.dart` | The showcase: six screens made of sea glass (quick settings, a tide pool of living pebbles, music, weather, a smart home, a wallet). Its style tray switches every screen between sea glass, slab and clear slab glass and tunes the wallpaper, finish, tone, shape, shine, shadows, transparency, frost and color. |
+| `lib/sea_glass_showcase_main.dart` | The showcase: six screens made of sea glass (quick settings, a tide pool of living pebbles, music, weather, a smart home, a wallet). Its style tray switches every screen between sea glass, slab, clear slab and mineral glass and tunes the wallpaper, finish, tone, shape, shine, shadows, transparency, frost and color, plus mineral glass's etch, caustic and tints. |
 | `lib/guide_main.dart` | The README's "Build a UI with sea glass" guide as a small app: toggle tiles that merge like drops, a two-shape slider and a switch between three glasses. Start here to learn the API. |
 | `lib/slab_sea_glass_main.dart` | Slab sea glass: a component sheet after the Sea Glass design concept, with daylight, dusk and a flashlight that follows the pointer. |
+| `lib/mineral_sea_glass_main.dart` | Mineral sea glass beside pebble, slab and liquid glass: a draggable pill over large type, with Frost Etch and Caustic Glow sliders and mineral tint swatches. |
 | `lib/main.dart` | The settings playground for the renderer, described below. |
 
 ```sh

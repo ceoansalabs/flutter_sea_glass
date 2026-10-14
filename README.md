@@ -136,6 +136,7 @@ then tune them (see [Settings reference](#settings-reference)).
 | Clear sea glass | The same, with colored glass clear enough to show and bend what is beneath | `LiquidGlassSettings.seaGlass(finish: const SeaGlassFinish(colorClarity: .6))` | as above |
 | Slab sea glass | Thick, milky pastel slabs that glow on the side away from the light and cast soft shadows | `LiquidGlassSettings.slabSeaGlass()` | `SlabSeaGlass.appearance(SlabSeaGlass.original.primary)` |
 | Clear slab | The pastel slabs made translucent, frosted or clear | `slabSeaGlass` with a low `scatter` and a wider lens (see [Recipes](#recipes)) | as above |
+| Mineral sea glass | Mineral-tinted glass etched into a sugary glitter, focusing light into a bright band beneath it | `LiquidGlassSettings.mineralSeaGlass(etch: .7, caustic: .6)` (see [Mineral sea glass](#mineral-sea-glass)) | `MineralTint.seafoamJade.appearance` |
 | Liquid glass | iOS 27-style clear glass with a bevel, glint and border | `LiquidGlassSettings.ios27Toolbar(brightness: ...)` | `LiquidGlassAppearance(tint: ...)` |
 
 ```dart
@@ -684,7 +685,7 @@ The example compares it with pebble, slab and liquid glass on a draggable
 pill, and the sea glass showcase lists it among its glasses:
 
 ```sh
-cd packages/liquid_glass_renderer/example
+cd example
 flutter run -t lib/mineral_sea_glass_main.dart --enable-impeller --enable-flutter-gpu
 ```
 
@@ -751,27 +752,29 @@ Shared by every shape in a layer.
 
 ### `SeaGlassFinish`
 
-The sea glass surface. The presets:
+The sea glass surface. The presets (`.mineral()` at its default `etch: .7, caustic: .6`; `glow` reaches `2` there):
 
-| Control | `SeaGlassFinish()` | `.frosted()` | `.clear()` | `.slab()` | What it does |
-| --- | --- | --- | --- | --- | --- |
-| `strength` | 1 | 1 | 1 | 1 | Cross-fades from regular glass (`0`) to sea glass (`1`). |
-| `depth` | 18 | 22 | 14 | 14 | How far in from the rim the glass reaches full thickness, in logical pixels. |
-| `scatter` | 0.12 | 0.45 | 0.05 | 0.85 | How milky the glass is: the share of light it scatters in its body color. |
-| `rimGlow` | 0.35 | 0.5 | 0.25 | 0 | The frosted rim's glow, strongest facing the light. |
-| `grain` | 0.5 | 0.7 | 0.3 | 0.15 | The fine sugary texture of the pits. |
-| `grainSize` | 1.4 | 1.8 | 1.2 | 1.1 | One grain, in logical pixels; also the size of slab flecks. |
-| `sparkle` | 0.35 | 0.45 | 0.2 | 0 | Tiny glints where pits catch the light. |
-| `pitting` | 0.6 | 1.6 | 0.4 | 0.3 | How far the pits scatter the backdrop, in logical pixels. |
-| `gloss` | 0.6 | 0.35 | 0.85 | 0 | The glint on the dome's shoulder and outline. |
-| `shading` | 0 | 0 | 0 | 1 | Slab shading: the body color in the middle, a bright thin outline, a clear rim. |
-| `glow` | 0 | 0 | 0 | 1 | The pale glow along the edge away from the light. |
-| `flecks` | 0 | 0 | 0 | 1 | Terrazzo chips inside the glass, in tones of its color. |
-| `shadow` | 0 | 0 | 0 | 1 | The shadow each shape casts away from the light (`0` turns it off). |
-| `elevation` | 12 | 12 | 12 | 18 | How high the glass stands above what it casts its shadow on. |
-| `wobble` | 0 | 0 | 0 | 1.5 | Hand-cut outlines that sink inward by up to this many points (full glass only). |
-| `colorClarity` | 0 | 0 | 0 | 0 | How much colored glass clears (see [Clear colored glass](#clear-colored-glass)). |
-| `stochasticFrost` | true | true | true | true | Renders `frost` with scattered samples in the glass pass; turn it off for a smooth Gaussian frost. |
+| Control | `SeaGlassFinish()` | `.frosted()` | `.clear()` | `.slab()` | `.mineral()` | What it does |
+| --- | --- | --- | --- | --- | --- | --- |
+| `strength` | 1 | 1 | 1 | 1 | 1 | Cross-fades from regular glass (`0`) to sea glass (`1`). |
+| `depth` | 18 | 22 | 14 | 14 | 20 | How far in from the rim the glass reaches full thickness, in logical pixels. |
+| `scatter` | 0.12 | 0.45 | 0.05 | 0.85 | 0.59 | How milky the glass is: the share of light it scatters in its body color. |
+| `rimGlow` | 0.35 | 0.5 | 0.25 | 0 | 0.5 | The frosted rim's glow, strongest facing the light. |
+| `grain` | 0.5 | 0.7 | 0.3 | 0.15 | 0.57 | The fine sugary texture of the pits. |
+| `grainSize` | 1.4 | 1.8 | 1.2 | 1.1 | 0.7 | One grain, in logical pixels; also the size of slab flecks. |
+| `sparkle` | 0.35 | 0.45 | 0.2 | 0 | 0.66 | Tiny glints where pits catch the light. |
+| `pitting` | 0.6 | 1.6 | 0.4 | 0.3 | 1.14 | How far the pits scatter the backdrop, in logical pixels. |
+| `gloss` | 0.6 | 0.35 | 0.85 | 0 | 0 | The glint on the dome's shoulder and outline. |
+| `shading` | 0 | 0 | 0 | 1 | 1 | Slab shading: the body color in the middle, a bright thin outline, a clear rim. |
+| `glow` | 0 | 0 | 0 | 1 | 1.6 | The pale glow along the edge away from the light. |
+| `flecks` | 0 | 0 | 0 | 1 | 0.75 | Terrazzo chips inside the glass, in tones of its color. |
+| `shadow` | 0 | 0 | 0 | 1 | 1 | The shadow each shape casts away from the light (`0` turns it off). |
+| `elevation` | 12 | 12 | 12 | 18 | 12 | How high the glass stands above what it casts its shadow on. |
+| `wobble` | 0 | 0 | 0 | 1.5 | 2.5 | Hand-cut outlines that sink inward by up to this many points (full glass only). |
+| `colorClarity` | 0 | 0 | 0 | 0 | 0 | How much colored glass clears (see [Clear colored glass](#clear-colored-glass)). |
+| `caustic` | 0 | 0 | 0 | 0 | 0.6 | How brightly the glass focuses light into a band on the surface beneath it, in its color; needs `shadow`. |
+| `glitter` | 0 | 0 | 0 | 0 | 0.75 | Granules of a deep etch, some lit and some shadowed, from every side. |
+| `stochasticFrost` | true | true | true | true | true | Renders `frost` with scattered samples in the glass pass; turn it off for a smooth Gaussian frost. |
 
 Change any control with `copyWith`:
 
@@ -1077,9 +1080,10 @@ flutter run -t lib/sea_glass_showcase_main.dart --enable-impeller --enable-flutt
 
 The palette button offers every sea glass color. The style button opens a
 tray with every setting the README describes, applied to all screens at
-once: the glass (sea glass, slab or clear slab), the wallpaper, the finish,
+once: the glass (sea glass, slab, clear slab or mineral), the wallpaper, the finish,
 the tone, the shape of round buttons (round, pebble or living), the shine,
-shadows on or off, and sliders for transparency, frost and color. Its
+shadows on or off, and sliders for transparency, frost and color. Mineral
+glass adds its own Frost etch and Caustic glow sliders and mineral tints. Its
 source in `example/lib/sea_glass_showcase/` shows how to theme a whole app
 from one style object.
 

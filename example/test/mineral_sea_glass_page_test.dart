@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_sea_glass/liquid_glass_renderer.dart';
+import 'package:flutter_sea_glass/flutter_sea_glass.dart';
 import 'package:flutter_sea_glass_example/pages/mineral_sea_glass_page.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 Future<MineralSeaGlassPageState> _pumpPage(
   WidgetTester tester,
